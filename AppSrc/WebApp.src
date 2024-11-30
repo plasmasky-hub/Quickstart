@@ -63,6 +63,17 @@ Object oWebApp is a cWebApp
                                 Send NavigatePath
                         End_Procedure
                     End_Object
+
+                    Object oMedialistItem1 is a cWebMenuItem
+                        Set psCaption to "Media list"
+
+                        WebRegisterPath ntNavigateBegin oSelectMedia
+
+                        Procedure OnClick
+                            Forward Send OnClick
+                                Send NavigatePath
+                        End_Procedure
+                    End_Object
                 End_Object
 
                 Object oSignOut_itm is a cWebMenuItem
@@ -146,6 +157,8 @@ Object oWebApp is a cWebApp
     Use Dashboard.wo
     Use ZoomPerson.wo
     Use SelectPerson.wo
+    Use ZoomMedia.wo
+    Use SelectMedia.wo
     Set phoDefaultView to oDashboard
 
 End_Object

@@ -1,5 +1,5 @@
 Compiling Program: D:\DataFlex Projects\Quickstart\AppSrc\WebApp.src
-Memory Available: 39967772672
+Memory Available: 37434200064
 1>Use AllWebAppClasses.pkg
 Using pre-compiled package ALLWEBAPPCLASSES.PKG
 Including file: AllWebAppClasses.x64.pkd    (D:\DataFlex 24.0\Pkg\AllWebAppClasses.x64.pkd)
@@ -181,1272 +181,1735 @@ Including file: LoginEncryptionKey.inc    (D:\DataFlex Projects\Quickstart\AppSr
 36142>                                Send NavigatePath
 36143>                        End_Procedure
 36144>                    End_Object
-36145>                End_Object
-36146>
-36146>                Object oSignOut_itm is a cWebMenuItem
-36148>                    Set psCaption to C_$LogOut
-36149>
-36149>                    Procedure OnClick
-36152>                        Send RequestLogOut of ghoWebSessionManager
-36153>                    End_Procedure
-36154>                End_Object
-36155>            End_Object  
-36156>
-36156>            Object oBackButton is a cWebButton
-36158>                Set psCSSClass to "WebBack_Icon"
-36159>                Set pbRender to False
-36160>                
-36160>                Procedure OnClick
-36163>                    Handle hoTop
-36163>                    
-36163>                    Get TopViewHandle of oViewStack to hoTop
-36164>                    If (hoTop > 0) Begin
-36166>                        Send NavigateCancel of hoTop 
-36167>                    End
-36167>                End_Procedure
-36168>            End_Object
-36169>            
-36169>            Send AddClient of oViewStack Self
-36170>                
-36170>            Procedure OnUpdateViewStack
-36173>                Handle hoTop hoDflt
-36173>                Integer eMode
-36173>                Boolean bTop
-36173>                
-36173>                WebGet peMode of (Owner(Self)) to eMode
-36174>                
-36174>                Get TopViewHandle of oViewStack to hoTop
-36175>                Get GetDefaultView to hoDflt
-36176>                Move (hoTop=0 or hoTop=hoDflt) to bTop
+36145>
+36145>                    Object oMedialistItem1 is a cWebMenuItem
+36147>                        Set psCaption to "Media list"
+36148>
+36148>                        WebRegisterPath ntNavigateBegin oSelectMedia
+36154>
+36154>                        Procedure OnClick
+36157>                            Forward Send OnClick
+36159>                                Send NavigatePath
+36160>                        End_Procedure
+36161>                    End_Object
+36162>                End_Object
+36163>
+36163>                Object oSignOut_itm is a cWebMenuItem
+36165>                    Set psCaption to C_$LogOut
+36166>
+36166>                    Procedure OnClick
+36169>                        Send RequestLogOut of ghoWebSessionManager
+36170>                    End_Procedure
+36171>                End_Object
+36172>            End_Object  
+36173>
+36173>            Object oBackButton is a cWebButton
+36175>                Set psCSSClass to "WebBack_Icon"
+36176>                Set pbRender to False
 36177>                
-36177>                WebSet pbRender of oBackButton to (not(bTop) and eMode >= rmMobile)
-36178>                WebSet pbRender of oMenuButton to (bTop or eMode < rmMobile)
-36179>            End_Procedure
-36180>
-36180>        End_Object
-36181>
-36181>        Object oCaptionPanel is a cWebPanel
-36183>            Set piColumnCount to 12
-36184>
-36184>            Object oCaptionBreadcrumb is a cWebBreadcrumb
-36186>                Set peBreadcrumbStyle to crumbCaption
-36187>                WebSetResponsive peBreadcrumbStyle rmMobile to crumbDropDown
-36188>            End_Object         
-36189>        End_Object
-36190>        
-36190>        Object oActionPanel is a cWebPanel
-36192>            Set peRegion to prRight
-36193>            Set piColumnCount to 1
-36194>            Set piWidth to 120
-36195>
-36195>            Object oMainActions is a cWebActionBar
-36197>                Set psGroupName to "MainActions"
+36177>                Procedure OnClick
+36180>                    Handle hoTop
+36180>                    
+36180>                    Get TopViewHandle of oViewStack to hoTop
+36181>                    If (hoTop > 0) Begin
+36183>                        Send NavigateCancel of hoTop 
+36184>                    End
+36184>                End_Procedure
+36185>            End_Object
+36186>            
+36186>            Send AddClient of oViewStack Self
+36187>                
+36187>            Procedure OnUpdateViewStack
+36190>                Handle hoTop hoDflt
+36190>                Integer eMode
+36190>                Boolean bTop
+36190>                
+36190>                WebGet peMode of (Owner(Self)) to eMode
+36191>                
+36191>                Get TopViewHandle of oViewStack to hoTop
+36192>                Get GetDefaultView to hoDflt
+36193>                Move (hoTop=0 or hoTop=hoDflt) to bTop
+36194>                
+36194>                WebSet pbRender of oBackButton to (not(bTop) and eMode >= rmMobile)
+36195>                WebSet pbRender of oMenuButton to (bTop or eMode < rmMobile)
+36196>            End_Procedure
+36197>
+36197>        End_Object
 36198>
-36198>                Set piColumnSpan to 0
-36199>                Set peAlign to alignRight
-36200>            End_Object
-36201>        End_Object
-36202>
-36202>        Object oBreadcrumbPanel is a cWebPanel
-36204>            Set peRegion to prBottom
-36205>            
-36205>            Object oHorizontalBreadcrumb is a cWebBreadcrumb
-36207>                WebSetResponsive pbRender rmMobile to False
-36208>            End_Object         
-36209>        End_Object
-36210>
-36210>    End_Object    
-36211>
-36211>    Use SessionManager.wo
+36198>        Object oCaptionPanel is a cWebPanel
+36200>            Set piColumnCount to 12
+36201>
+36201>            Object oCaptionBreadcrumb is a cWebBreadcrumb
+36203>                Set peBreadcrumbStyle to crumbCaption
+36204>                WebSetResponsive peBreadcrumbStyle rmMobile to crumbDropDown
+36205>            End_Object         
+36206>        End_Object
+36207>        
+36207>        Object oActionPanel is a cWebPanel
+36209>            Set peRegion to prRight
+36210>            Set piColumnCount to 1
+36211>            Set piWidth to 120
+36212>
+36212>            Object oMainActions is a cWebActionBar
+36214>                Set psGroupName to "MainActions"
+36215>
+36215>                Set piColumnSpan to 0
+36216>                Set peAlign to alignRight
+36217>            End_Object
+36218>        End_Object
+36219>
+36219>        Object oBreadcrumbPanel is a cWebPanel
+36221>            Set peRegion to prBottom
+36222>            
+36222>            Object oHorizontalBreadcrumb is a cWebBreadcrumb
+36224>                WebSetResponsive pbRender rmMobile to False
+36225>            End_Object         
+36226>        End_Object
+36227>
+36227>    End_Object    
+36228>
+36228>    Use SessionManager.wo
 Including file: SessionManager.wo    (D:\DataFlex Projects\Quickstart\AppSrc\SessionManager.wo)
-36211>>>Use cWebSessionManagerStandard.pkg
+36228>>>Use cWebSessionManagerStandard.pkg
 Including file: cWebSessionManagerStandard.pkg    (D:\DataFlex 24.0\Pkg\cWebSessionManagerStandard.pkg)
-36211>>>>>Use cWebSessionManager.pkg
-36211>>>>>Use cWebAppSessionDataDictionary.dd
+36228>>>>>Use cWebSessionManager.pkg
+36228>>>>>Use cWebAppSessionDataDictionary.dd
 Including file: cWebAppSessionDataDictionary.dd    (D:\DataFlex 24.0\Pkg\cWebAppSessionDataDictionary.dd)
-36211>>>>>>>Use DataDict.pkg
-36211>>>>>>>
-36211>>>>>>>Open WebAppSession
+36228>>>>>>>Use DataDict.pkg
+36228>>>>>>>
+36228>>>>>>>Open WebAppSession
 Including file: WebAppSession.fd    (D:\DataFlex Projects\Quickstart\DDSrc\WebAppSession.fd)
-36213>>>>>>>Open WebAppUser
+36230>>>>>>>Open WebAppUser
 Including file: WebAppUser.fd    (D:\DataFlex Projects\Quickstart\DDSrc\WebAppUser.fd)
-36215>>>>>>>
-36215>>>>>>>Class cWebAppSessionDataDictionary is a DataDictionary
-36216>>>>>>>    Procedure Construct_Object
-36218>>>>>>>        Forward Send Construct_Object
-36220>>>>>>>
-36220>>>>>>>        Set Main_File to WebAppSession.File_Number
-36221>>>>>>>
-36221>>>>>>>        Set Add_Server_File to WebAppUser.File_Number
-36222>>>>>>>
-36222>>>>>>>        Set ParentNullAllowed WebAppUser.File_Number to True
-36223>>>>>>>
-36223>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
-36224>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
-36225>>>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
-36226>>>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
-36227>>>>>>>
-36227>>>>>>>        Set Field_Checkbox_Values Field WebAppSession.Active to "Y" "N"
-36228>>>>>>>        Set Field_Error Field WebAppSession.Active to 500 "Invalid WebAppSession Active State"
-36229>>>>>>>    End_Procedure
-36230>>>>>>>
-36230>>>>>>>    Procedure Creating
-36232>>>>>>>        DateTime dtCurrentDateTime
-36232>>>>>>>        
-36232>>>>>>>        Forward Send Creating
-36234>>>>>>>        
-36234>>>>>>>        //  Init usecounter
-36234>>>>>>>        Move 0 to WebAppSession.UseCount
-36235>>>>>>>        
-36235>>>>>>>        //  Set the creation and access time to the current time
-36235>>>>>>>        Move (CurrentDateTime()) to dtCurrentDateTime
-36236>>>>>>>    
-36236>>>>>>>        Get TimeToString dtCurrentDateTime to WebAppSession.CreateTime
-36237>>>>>>>        Get TimeToString dtCurrentDateTime to WebAppSession.LastAccessTime
-36238>>>>>>>        
-36238>>>>>>>        Move dtCurrentDateTime to WebAppSession.CreateDate
-36239>>>>>>>        Move dtCurrentDateTime to WebAppSession.LastAccessDate
-36240>>>>>>>    End_Procedure
-36241>>>>>>>    
-36241>>>>>>>    //
-36241>>>>>>>    //  Converts the given time to an string that can be saved in the database.
-36241>>>>>>>    //
-36241>>>>>>>    //  Params:
-36241>>>>>>>    //      dtTime  Time to convert
-36241>>>>>>>    //  Returns:
-36241>>>>>>>    //      String with "HH:MM:SS" format
-36241>>>>>>>    //
-36241>>>>>>>    Function TimeToString DateTime dtTime Returns String
-36243>>>>>>>        String sHours sMinutes sSeconds
-36243>>>>>>>        
-36243>>>>>>>        //  Extract parts
-36243>>>>>>>        Move (String(DateGetHour(dtTime))) to sHours
-36244>>>>>>>        Move (String(DateGetMinute(dtTime))) to sMinutes
-36245>>>>>>>        Move (String(DateGetSecond(dtTime))) to sSeconds
-36246>>>>>>>        
-36246>>>>>>>        //  Fill out with 0
-36246>>>>>>>        If (Length(sHours) = 1) ;            Move ("0" + sHours) to sHours
-36249>>>>>>>        If (Length(sMinutes) = 1) ;            Move ("0" + sMinutes) to sMinutes
-36252>>>>>>>        If (Length(sSeconds) = 1) ;            Move ("0" + sSeconds) to sSeconds
+36232>>>>>>>
+36232>>>>>>>Class cWebAppSessionDataDictionary is a DataDictionary
+36233>>>>>>>    Procedure Construct_Object
+36235>>>>>>>        Forward Send Construct_Object
+36237>>>>>>>
+36237>>>>>>>        Set Main_File to WebAppSession.File_Number
+36238>>>>>>>
+36238>>>>>>>        Set Add_Server_File to WebAppUser.File_Number
+36239>>>>>>>
+36239>>>>>>>        Set ParentNullAllowed WebAppUser.File_Number to True
+36240>>>>>>>
+36240>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+36241>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+36242>>>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+36243>>>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+36244>>>>>>>
+36244>>>>>>>        Set Field_Checkbox_Values Field WebAppSession.Active to "Y" "N"
+36245>>>>>>>        Set Field_Error Field WebAppSession.Active to 500 "Invalid WebAppSession Active State"
+36246>>>>>>>    End_Procedure
+36247>>>>>>>
+36247>>>>>>>    Procedure Creating
+36249>>>>>>>        DateTime dtCurrentDateTime
+36249>>>>>>>        
+36249>>>>>>>        Forward Send Creating
+36251>>>>>>>        
+36251>>>>>>>        //  Init usecounter
+36251>>>>>>>        Move 0 to WebAppSession.UseCount
+36252>>>>>>>        
+36252>>>>>>>        //  Set the creation and access time to the current time
+36252>>>>>>>        Move (CurrentDateTime()) to dtCurrentDateTime
+36253>>>>>>>    
+36253>>>>>>>        Get TimeToString dtCurrentDateTime to WebAppSession.CreateTime
+36254>>>>>>>        Get TimeToString dtCurrentDateTime to WebAppSession.LastAccessTime
 36255>>>>>>>        
-36255>>>>>>>        Function_Return (sHours + ":" + sMinutes + ":" + sSeconds)
-36256>>>>>>>    End_Function
-36257>>>>>>>    
-36257>>>>>>>    //
-36257>>>>>>>    //  Sets the time of the datetime variable to the time in the string.
-36257>>>>>>>    //
-36257>>>>>>>    //  Params:
-36257>>>>>>>    //      dtTime  Datetime variable to add time to
-36257>>>>>>>    //      sTimeString String with time in the format "HH:MM:SS"
-36257>>>>>>>    //  Returns:
-36257>>>>>>>    //      dtDateTime with the loaded time
-36257>>>>>>>    //
-36257>>>>>>>    Function StringToTime DateTime dtTime String sTimeString Returns DateTime
-36259>>>>>>>        String sHours sMinutes sSeconds
-36259>>>>>>>        
-36259>>>>>>>        //  Extract parts
-36259>>>>>>>        Move (Mid(sTimeString, 2, 1)) to sHours
-36260>>>>>>>        Move (Mid(sTimeString, 2, 4)) to sMinutes
-36261>>>>>>>        Move (Mid(sTimeString, 2, 7)) to sSeconds
-36262>>>>>>>        
-36262>>>>>>>        //  Set to DateTime
-36262>>>>>>>        Move (DateSetHour(dtTime, (Integer(sHours)))) to dtTime
-36263>>>>>>>        Move (DateSetMinute(dtTime, (Integer(sMinutes)))) to dtTime
-36264>>>>>>>        Move (DateSetSecond(dtTime, (Integer(sSeconds)))) to dtTime
-36265>>>>>>>        
-36265>>>>>>>        Function_Return dtTime
-36266>>>>>>>    End_Function
-36267>>>>>>>End_Class
-36268>>>>>Use cWebAppUserDataDictionary.dd
-Including file: cWebAppUserDataDictionary.dd    (D:\DataFlex 24.0\Pkg\cWebAppUserDataDictionary.dd)
-36268>>>>>>>Use DataDict.pkg
-36268>>>>>>>Open WebAppUser
-36270>>>>>>>Open WebAppSession
-36272>>>>>>>
-36272>>>>>>>Class cWebAppUserDataDictionary is a DataDictionary
-36273>>>>>>>    
-36273>>>>>>>    Procedure Construct_Object
-36275>>>>>>>        Forward Send Construct_Object
-36277>>>>>>>        Set Main_File to WebAppUser.File_Number
-36278>>>>>>>
-36278>>>>>>>        Set Add_Client_File to WebAppSession.File_Number
-36279>>>>>>>
-36279>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
-36280>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
-36281>>>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
-36282>>>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
-36283>>>>>>>    End_Procedure
-36284>>>>>>>
+36255>>>>>>>        Move dtCurrentDateTime to WebAppSession.CreateDate
+36256>>>>>>>        Move dtCurrentDateTime to WebAppSession.LastAccessDate
+36257>>>>>>>    End_Procedure
+36258>>>>>>>    
+36258>>>>>>>    //
+36258>>>>>>>    //  Converts the given time to an string that can be saved in the database.
+36258>>>>>>>    //
+36258>>>>>>>    //  Params:
+36258>>>>>>>    //      dtTime  Time to convert
+36258>>>>>>>    //  Returns:
+36258>>>>>>>    //      String with "HH:MM:SS" format
+36258>>>>>>>    //
+36258>>>>>>>    Function TimeToString DateTime dtTime Returns String
+36260>>>>>>>        String sHours sMinutes sSeconds
+36260>>>>>>>        
+36260>>>>>>>        //  Extract parts
+36260>>>>>>>        Move (String(DateGetHour(dtTime))) to sHours
+36261>>>>>>>        Move (String(DateGetMinute(dtTime))) to sMinutes
+36262>>>>>>>        Move (String(DateGetSecond(dtTime))) to sSeconds
+36263>>>>>>>        
+36263>>>>>>>        //  Fill out with 0
+36263>>>>>>>        If (Length(sHours) = 1) ;            Move ("0" + sHours) to sHours
+36266>>>>>>>        If (Length(sMinutes) = 1) ;            Move ("0" + sMinutes) to sMinutes
+36269>>>>>>>        If (Length(sSeconds) = 1) ;            Move ("0" + sSeconds) to sSeconds
+36272>>>>>>>        
+36272>>>>>>>        Function_Return (sHours + ":" + sMinutes + ":" + sSeconds)
+36273>>>>>>>    End_Function
+36274>>>>>>>    
+36274>>>>>>>    //
+36274>>>>>>>    //  Sets the time of the datetime variable to the time in the string.
+36274>>>>>>>    //
+36274>>>>>>>    //  Params:
+36274>>>>>>>    //      dtTime  Datetime variable to add time to
+36274>>>>>>>    //      sTimeString String with time in the format "HH:MM:SS"
+36274>>>>>>>    //  Returns:
+36274>>>>>>>    //      dtDateTime with the loaded time
+36274>>>>>>>    //
+36274>>>>>>>    Function StringToTime DateTime dtTime String sTimeString Returns DateTime
+36276>>>>>>>        String sHours sMinutes sSeconds
+36276>>>>>>>        
+36276>>>>>>>        //  Extract parts
+36276>>>>>>>        Move (Mid(sTimeString, 2, 1)) to sHours
+36277>>>>>>>        Move (Mid(sTimeString, 2, 4)) to sMinutes
+36278>>>>>>>        Move (Mid(sTimeString, 2, 7)) to sSeconds
+36279>>>>>>>        
+36279>>>>>>>        //  Set to DateTime
+36279>>>>>>>        Move (DateSetHour(dtTime, (Integer(sHours)))) to dtTime
+36280>>>>>>>        Move (DateSetMinute(dtTime, (Integer(sMinutes)))) to dtTime
+36281>>>>>>>        Move (DateSetSecond(dtTime, (Integer(sSeconds)))) to dtTime
+36282>>>>>>>        
+36282>>>>>>>        Function_Return dtTime
+36283>>>>>>>    End_Function
 36284>>>>>>>End_Class
-36285>>>>>
-36285>>>>>Class cWebSessionManagerStandard is a cWebSessionManager
-36286>>>>>    
-36286>>>>>    Procedure Construct_Object
-36288>>>>>        Handle hoUserDD hoSessionDD
-36288>>>>>        
-36288>>>>>        Forward Send Construct_Object
-36290>>>>>        
-36290>>>>>        Property Handle phoUserDD 0      // Handle to the WebAppUser DDO
-36291>>>>>        Property Handle phoSessionDD 0   // Handle to the WebAppSession DDO        
-36292>>>>>        
-36292>>>>>        Get Create (RefClass(cWebAppUserDataDictionary)) to hoUserDD
-36293>>>>>        Get Create (RefClass(cWebAppSessionDataDictionary)) to hoSessionDD
-36294>>>>>        Set DDO_Server of hoSessionDD to hoUserDD
-36295>>>>>
-36295>>>>>        Set phoUserDD to hoUserDD
-36296>>>>>        Set phoSessionDD to hoSessionDD
-36297>>>>>        Property Boolean pbCreatingNewSession False
-36298>>>>>        Property String psLoginName
-36299>>>>>        Property String psUserName ""
-36300>>>>>        Property Integer piUserRights 0
-36301>>>>>    End_Procedure
-36302>>>>>    
-36302>>>>>    Function CreateSession String sRemoteAddress Returns String
-36304>>>>>        String sSessionKey
-36304>>>>>        Integer iErr
-36304>>>>>        Boolean bLogWebSession
-36304>>>>>        Handle hoSessionDD       
-36304>>>>>        Get phoSessionDD to hoSessionDD
+36285>>>>>Use cWebAppUserDataDictionary.dd
+Including file: cWebAppUserDataDictionary.dd    (D:\DataFlex 24.0\Pkg\cWebAppUserDataDictionary.dd)
+36285>>>>>>>Use DataDict.pkg
+36285>>>>>>>Open WebAppUser
+36287>>>>>>>Open WebAppSession
+36289>>>>>>>
+36289>>>>>>>Class cWebAppUserDataDictionary is a DataDictionary
+36290>>>>>>>    
+36290>>>>>>>    Procedure Construct_Object
+36292>>>>>>>        Forward Send Construct_Object
+36294>>>>>>>        Set Main_File to WebAppUser.File_Number
+36295>>>>>>>
+36295>>>>>>>        Set Add_Client_File to WebAppSession.File_Number
+36296>>>>>>>
+36296>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+36297>>>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+36298>>>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+36299>>>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+36300>>>>>>>    End_Procedure
+36301>>>>>>>
+36301>>>>>>>End_Class
+36302>>>>>
+36302>>>>>Class cWebSessionManagerStandard is a cWebSessionManager
+36303>>>>>    
+36303>>>>>    Procedure Construct_Object
+36305>>>>>        Handle hoUserDD hoSessionDD
 36305>>>>>        
-36305>>>>>        //  Get session key
-36305>>>>>        Forward Get CreateSession sRemoteAddress to sSessionKey
+36305>>>>>        Forward Send Construct_Object
 36307>>>>>        
-36307>>>>>        Get pbLogWebSession to bLogWebSession
-36308>>>>>        If not bLogWebSession Begin
-36310>>>>>            Function_Return sSessionKey        
-36311>>>>>        End
-36311>>>>>>
-36311>>>>>
-36311>>>>>        //  Store session
-36311>>>>>        Send Clear of hoSessionDD
-36312>>>>>        Set Field_Changed_Value of hoSessionDD Field WebAppSession.SessionKey to sSessionKey
-36313>>>>>        Set Field_Changed_Value of hoSessionDD Field WebAppSession.RemoteAddress to sRemoteAddress
-36314>>>>>        Set Field_Changed_Value of hoSessionDD Field WebAppSession.Active to "Y"
-36315>>>>>        Get Request_Validate of hoSessionDD to iErr
-36316>>>>>        If (iErr) Begin
-36318>>>>>            // this should not happen. If it does its a programming error
-36318>>>>>            Error DFERR_PROGRAM C_$WebAppSesionValidateFailed
-36319>>>>>>
-36319>>>>>            Function_Return ""
-36320>>>>>        End
-36320>>>>>>
-36320>>>>>        Send Request_Save of hoSessionDD
-36321>>>>>        If (Err) Begin
-36323>>>>>            // this shouldn't happen, if it does likely a duplicate session key issue, even through request_save already gave an error we give another one to make tracking down easier
-36323>>>>>            Error DFERR_PROGRAM C_$WebAppSesionSaveFailed
-36324>>>>>>
-36324>>>>>            Function_Return ""
-36325>>>>>        End
-36325>>>>>>
-36325>>>>>       
-36325>>>>>        Function_Return sSessionKey        
-36326>>>>>    End_Function
-36327>>>>>    
-36327>>>>>    
-36327>>>>>    Function ValidateSession String sSessionKey Boolean bOptLoadWebApp Returns Boolean
-36329>>>>>        DateTime dtLastAccess dtCurrent
-36329>>>>>        TimeSpan tsDiff
-36329>>>>>        Integer iErr iSessionTimeout iSpanMinutes
-36329>>>>>        Boolean bResult bCreatingNewSession
-36329>>>>>        Boolean bLogWebSession bLoadWebApp
-36329>>>>>        Integer eLoginMode
-36329>>>>>        String sTime
-36329>>>>>        Handle hoSessionDD hoUserDD       
-36329>>>>>        
-36329>>>>>        Move False to bLoadWebApp
-36330>>>>>        If (num_arguments >= 2) Begin
-36332>>>>>            Move bOptLoadWebApp to bLoadWebApp
-36333>>>>>        End
-36333>>>>>>
-36333>>>>>        
-36333>>>>>        Get phoSessionDD to hoSessionDD
-36334>>>>>        Get phoUserDD to hoUserDD
-36335>>>>>        
-36335>>>>>        Get pbLogWebSession to bLogWebSession
-36336>>>>>        Get peLoginMode to eLoginMode
-36337>>>>>        
-36337>>>>>        // for this object, you can only disable logging if login completely is disabled
-36337>>>>>        If (not(bLogWebSession) and (eLoginMode<>lmLoginNone)) Begin
-36339>>>>>            Error DFERR_PROGRAM C_$WebSessionLoggingMustBeEnabled
-36340>>>>>>
-36340>>>>>            Function_Return False
-36341>>>>>        End
+36307>>>>>        Property Handle phoUserDD 0      // Handle to the WebAppUser DDO
+36308>>>>>        Property Handle phoSessionDD 0   // Handle to the WebAppSession DDO        
+36309>>>>>        
+36309>>>>>        Get Create (RefClass(cWebAppUserDataDictionary)) to hoUserDD
+36310>>>>>        Get Create (RefClass(cWebAppSessionDataDictionary)) to hoSessionDD
+36311>>>>>        Set DDO_Server of hoSessionDD to hoUserDD
+36312>>>>>
+36312>>>>>        Set phoUserDD to hoUserDD
+36313>>>>>        Set phoSessionDD to hoSessionDD
+36314>>>>>        Property Boolean pbCreatingNewSession False
+36315>>>>>        Property String psLoginName
+36316>>>>>        Property String psUserName ""
+36317>>>>>        Property Integer piUserRights 0
+36318>>>>>    End_Procedure
+36319>>>>>    
+36319>>>>>    Function CreateSession String sRemoteAddress Returns String
+36321>>>>>        String sSessionKey
+36321>>>>>        Integer iErr
+36321>>>>>        Boolean bLogWebSession
+36321>>>>>        Handle hoSessionDD       
+36321>>>>>        Get phoSessionDD to hoSessionDD
+36322>>>>>        
+36322>>>>>        //  Get session key
+36322>>>>>        Forward Get CreateSession sRemoteAddress to sSessionKey
+36324>>>>>        
+36324>>>>>        Get pbLogWebSession to bLogWebSession
+36325>>>>>        If not bLogWebSession Begin
+36327>>>>>            Function_Return sSessionKey        
+36328>>>>>        End
+36328>>>>>>
+36328>>>>>
+36328>>>>>        //  Store session
+36328>>>>>        Send Clear of hoSessionDD
+36329>>>>>        Set Field_Changed_Value of hoSessionDD Field WebAppSession.SessionKey to sSessionKey
+36330>>>>>        Set Field_Changed_Value of hoSessionDD Field WebAppSession.RemoteAddress to sRemoteAddress
+36331>>>>>        Set Field_Changed_Value of hoSessionDD Field WebAppSession.Active to "Y"
+36332>>>>>        Get Request_Validate of hoSessionDD to iErr
+36333>>>>>        If (iErr) Begin
+36335>>>>>            // this should not happen. If it does its a programming error
+36335>>>>>            Error DFERR_PROGRAM C_$WebAppSesionValidateFailed
+36336>>>>>>
+36336>>>>>            Function_Return ""
+36337>>>>>        End
+36337>>>>>>
+36337>>>>>        Send Request_Save of hoSessionDD
+36338>>>>>        If (Err) Begin
+36340>>>>>            // this shouldn't happen, if it does likely a duplicate session key issue, even through request_save already gave an error we give another one to make tracking down easier
+36340>>>>>            Error DFERR_PROGRAM C_$WebAppSesionSaveFailed
 36341>>>>>>
-36341>>>>>
-36341>>>>>        //  Clear session properties
-36341>>>>>        Set psSessionKey to ""
-36342>>>>>        Send UpdateSessionProperties True
-36343>>>>>        
-36343>>>>>        If not bLogWebSession Begin
-36345>>>>>            Forward Get ValidateSession sSessionKey to bResult
-36347>>>>>            Function_Return bResult
-36348>>>>>        End        
-36348>>>>>>
-36348>>>>>        
-36348>>>>>        Move False to bResult
-36349>>>>>        Get piSessionTimeout to iSessionTimeout 
+36341>>>>>            Function_Return ""
+36342>>>>>        End
+36342>>>>>>
+36342>>>>>       
+36342>>>>>        Function_Return sSessionKey        
+36343>>>>>    End_Function
+36344>>>>>    
+36344>>>>>    
+36344>>>>>    Function ValidateSession String sSessionKey Boolean bOptLoadWebApp Returns Boolean
+36346>>>>>        DateTime dtLastAccess dtCurrent
+36346>>>>>        TimeSpan tsDiff
+36346>>>>>        Integer iErr iSessionTimeout iSpanMinutes
+36346>>>>>        Boolean bResult bCreatingNewSession
+36346>>>>>        Boolean bLogWebSession bLoadWebApp
+36346>>>>>        Integer eLoginMode
+36346>>>>>        String sTime
+36346>>>>>        Handle hoSessionDD hoUserDD       
+36346>>>>>        
+36346>>>>>        Move False to bLoadWebApp
+36347>>>>>        If (num_arguments >= 2) Begin
+36349>>>>>            Move bOptLoadWebApp to bLoadWebApp
+36350>>>>>        End
+36350>>>>>>
 36350>>>>>        
-36350>>>>>        //  Check if session exists
-36350>>>>>        Send Clear of hoSessionDD
-36351>>>>>        Move sSessionKey to WebAppSession.SessionKey
-36352>>>>>        Send Find of hoSessionDD EQ Index.1
-36353>>>>>            
-36353>>>>>        If (Found) Begin
-36355>>>>>            //  Calculate timespan between now and last access time
-36355>>>>>            Move (CurrentDateTime()) to dtCurrent
-36356>>>>>            Move WebAppSession.LastAccessDate to dtLastAccess
-36357>>>>>            Get StringToTime of hoSessionDD dtLastAccess WebAppSession.LastAccessTime to dtLastAccess
-36358>>>>>            Move (dtCurrent - dtLastAccess) to tsDiff
-36359>>>>>            Move (SpanTotalMinutes(tsDiff)) to iSpanMinutes
-36360>>>>>            
-36360>>>>>            //  Check if session didn't time out
-36360>>>>>            If (IsDateValid(dtLastAccess) and (iSessionTimeout <= 0 or (iSpanMinutes < iSessionTimeout)) and WebAppSession.Active = "Y") Begin
-36362>>>>>                Forward Get ValidateSession sSessionKey to bResult
-36364>>>>>                   
-36364>>>>>                If (bResult) Begin
-36366>>>>>                    //  Update session record
-36366>>>>>                    Get TimeToString of hoSessionDD dtCurrent to sTime 
-36367>>>>>                    Set Field_Changed_Value of hoSessionDD Field WebAppSession.LastAccessDate to dtCurrent
-36368>>>>>                    Set Field_Changed_Value of hoSessionDD Field WebAppSession.LastAccessTime to sTime
-36369>>>>>                    Set Field_Changed_Value of hoSessionDD Field WebAppSession.UseCount to (WebAppSession.UseCount + 1)
-36370>>>>>                    Get Request_Validate of hoSessionDD to iErr
-36371>>>>>                    If (iErr) Begin
-36373>>>>>                        // this should not happen. If it does its a programming error
-36373>>>>>                        Error DFERR_PROGRAM C_$WebAppSesionValidateFailed
-36374>>>>>>
-36374>>>>>                        Function_Return False
-36375>>>>>                    End
-36375>>>>>>
-36375>>>>>                    Send Request_Save of hoSessionDD
-36376>>>>>                    
-36376>>>>>                    //  Update user properties
-36376>>>>>                    Send UpdateSessionProperties False
-36377>>>>>                End
-36377>>>>>>
-36377>>>>>            End
-36377>>>>>>
-36377>>>>>            Else Begin
-36378>>>>>                // Test the Creating New Session Flag to protect against infinite recursion....
-36378>>>>>                Get pbCreatingNewSession to bCreatingNewSession
-36379>>>>>                
-36379>>>>>                If (not(bCreatingNewSession)) Begin
-36381>>>>>                    If (not(bLoadWebApp)) Begin
-36383>>>>>                        Move False to bResult   //  We can only continue immediately if we were loading the webapp, other operations are not allowed!
-36384>>>>>                        Error DFERR_WEBAPP_SESSION_TIMEOUT "Your application session has timed out or is inactive, please login again."
-36385>>>>>>
-36385>>>>>                        Send NavigateRefresh of ghoWebApp          // refresh the WebApp at the client (triggers a login)
-36386>>>>>                    End
-36386>>>>>>
-36386>>>>>                    Else Begin
-36387>>>>>                        Set pbCreatingNewSession to True                    
-36388>>>>>                        Get RecreateSession of ghoWebApp to bResult 
-36389>>>>>                        Set pbCreatingNewSession to False                        
-36390>>>>>                    End
-36390>>>>>>
-36390>>>>>                End
-36390>>>>>>
-36390>>>>>            End
-36390>>>>>>
-36390>>>>>        End
-36390>>>>>>
-36390>>>>>        Else Begin
-36391>>>>>            Error DFERR_WEBAPP_BAD_SESSION_KEY "Session key not known (reload page to recreate session)"
+36350>>>>>        Get phoSessionDD to hoSessionDD
+36351>>>>>        Get phoUserDD to hoUserDD
+36352>>>>>        
+36352>>>>>        Get pbLogWebSession to bLogWebSession
+36353>>>>>        Get peLoginMode to eLoginMode
+36354>>>>>        
+36354>>>>>        // for this object, you can only disable logging if login completely is disabled
+36354>>>>>        If (not(bLogWebSession) and (eLoginMode<>lmLoginNone)) Begin
+36356>>>>>            Error DFERR_PROGRAM C_$WebSessionLoggingMustBeEnabled
+36357>>>>>>
+36357>>>>>            Function_Return False
+36358>>>>>        End
+36358>>>>>>
+36358>>>>>
+36358>>>>>        //  Clear session properties
+36358>>>>>        Set psSessionKey to ""
+36359>>>>>        Send UpdateSessionProperties True
+36360>>>>>        
+36360>>>>>        If not bLogWebSession Begin
+36362>>>>>            Forward Get ValidateSession sSessionKey to bResult
+36364>>>>>            Function_Return bResult
+36365>>>>>        End        
+36365>>>>>>
+36365>>>>>        
+36365>>>>>        Move False to bResult
+36366>>>>>        Get piSessionTimeout to iSessionTimeout 
+36367>>>>>        
+36367>>>>>        //  Check if session exists
+36367>>>>>        Send Clear of hoSessionDD
+36368>>>>>        Move sSessionKey to WebAppSession.SessionKey
+36369>>>>>        Send Find of hoSessionDD EQ Index.1
+36370>>>>>            
+36370>>>>>        If (Found) Begin
+36372>>>>>            //  Calculate timespan between now and last access time
+36372>>>>>            Move (CurrentDateTime()) to dtCurrent
+36373>>>>>            Move WebAppSession.LastAccessDate to dtLastAccess
+36374>>>>>            Get StringToTime of hoSessionDD dtLastAccess WebAppSession.LastAccessTime to dtLastAccess
+36375>>>>>            Move (dtCurrent - dtLastAccess) to tsDiff
+36376>>>>>            Move (SpanTotalMinutes(tsDiff)) to iSpanMinutes
+36377>>>>>            
+36377>>>>>            //  Check if session didn't time out
+36377>>>>>            If (IsDateValid(dtLastAccess) and (iSessionTimeout <= 0 or (iSpanMinutes < iSessionTimeout)) and WebAppSession.Active = "Y") Begin
+36379>>>>>                Forward Get ValidateSession sSessionKey to bResult
+36381>>>>>                   
+36381>>>>>                If (bResult) Begin
+36383>>>>>                    //  Update session record
+36383>>>>>                    Get TimeToString of hoSessionDD dtCurrent to sTime 
+36384>>>>>                    Set Field_Changed_Value of hoSessionDD Field WebAppSession.LastAccessDate to dtCurrent
+36385>>>>>                    Set Field_Changed_Value of hoSessionDD Field WebAppSession.LastAccessTime to sTime
+36386>>>>>                    Set Field_Changed_Value of hoSessionDD Field WebAppSession.UseCount to (WebAppSession.UseCount + 1)
+36387>>>>>                    Get Request_Validate of hoSessionDD to iErr
+36388>>>>>                    If (iErr) Begin
+36390>>>>>                        // this should not happen. If it does its a programming error
+36390>>>>>                        Error DFERR_PROGRAM C_$WebAppSesionValidateFailed
+36391>>>>>>
+36391>>>>>                        Function_Return False
+36392>>>>>                    End
 36392>>>>>>
-36392>>>>>        End
-36392>>>>>>
-36392>>>>>        
-36392>>>>>        Function_Return bResult
-36393>>>>>    End_Function
-36394>>>>>    
-36394>>>>>    Function UserLogin String sLoginName String sPassword Returns Boolean
-36396>>>>>        String sSessionKey sUserPassword
-36396>>>>>        Handle hoSessionDD hoUserDD
-36396>>>>>        Boolean bMatch  
-36396>>>>>        
-36396>>>>>        Get phoSessionDD to hoSessionDD
-36397>>>>>        Get phoUserDD to hoUserDD
-36398>>>>>        Integer iErr eLoginMode
-36398>>>>>        
-36398>>>>>        // Refind session record
-36398>>>>>        Get psSessionKey to sSessionKey
-36399>>>>>        Send Clear of hoSessionDD
-36400>>>>>        Move sSessionKey to WebAppSession.SessionKey
-36401>>>>>        Send Find of hoSessionDD EQ Index.1
-36402>>>>>        
-36402>>>>>        If (Found and WebAppSession.SessionKey = sSessionKey) Begin
-36404>>>>>            Get peLoginMode to eLoginMode
-36405>>>>>            
-36405>>>>>            //  Find the user
-36405>>>>>            Move sLoginName to WebAppUser.LoginName
-36406>>>>>            Send Find of hoUserDD EQ Index.1
-36407>>>>>            
-36407>>>>>            // Check username and password
-36407>>>>>            If (Found and (Lowercase(sLoginName) = Lowercase(Trim(WebAppUser.LoginName)))) Begin
-36409>>>>>                Get Field_Current_Value of hoUserDD Field WebAppUser.Password to sUserPassword
-36410>>>>>                Get ComparePasswords (Trim(sUserPassword)) (Trim(sPassword)) to bMatch
-36411>>>>>                
-36411>>>>>                If (bMatch) Begin
-36413>>>>>                    // Store the login
-36413>>>>>                    Set Field_Changed_Value of hoUserDD Field WebAppUser.LastLogin to (CurrentDateTime())
-36414>>>>>                    Get Request_Validate of hoSessionDD to iErr
-36415>>>>>                    If (iErr) Begin
-36417>>>>>                        // this should not happen. If it does its a programming error
-36417>>>>>                        Error DFERR_PROGRAM C_$WebAppSesionValidateFailed
-36418>>>>>>
-36418>>>>>                        Function_Return False
-36419>>>>>                    End
-36419>>>>>>
-36419>>>>>                    
-36419>>>>>                    Send Request_Save of hoSessionDD
-36420>>>>>                    
-36420>>>>>                    // Update session properties
-36420>>>>>                    Send UpdateSessionProperties False
-36421>>>>>                    Send NotifyChangeRights
-36422>>>>>                    Function_Return True
-36423>>>>>                End
-36423>>>>>>
-36423>>>>>                Else Begin
-36424>>>>>                    //  We should rely directly on this buffer elsewhere but just be sure
-36424>>>>>                    Send Clear of hoUserDD
-36425>>>>>                End
-36425>>>>>>
-36425>>>>>            End
-36425>>>>>>
-36425>>>>>        End
-36425>>>>>>
-36425>>>>>          
-36425>>>>>        Function_Return False
-36426>>>>>    End_Function
-36427>>>>>    
-36427>>>>>    Function IsLoggedIn Returns Boolean
-36429>>>>>        String sLoginName
-36429>>>>>        Boolean bLogWebSession bLoggedIn
-36429>>>>>        
-36429>>>>>        Get pbLogWebSession to bLogWebSession
-36430>>>>>        If not bLogWebSession Begin
-36432>>>>>            Forward Get IsLoggedIn to bLoggedIn
-36434>>>>>            Function_Return bLoggedIn
-36435>>>>>        End
+36392>>>>>                    Send Request_Save of hoSessionDD
+36393>>>>>                    
+36393>>>>>                    //  Update user properties
+36393>>>>>                    Send UpdateSessionProperties False
+36394>>>>>                End
+36394>>>>>>
+36394>>>>>            End
+36394>>>>>>
+36394>>>>>            Else Begin
+36395>>>>>                // Test the Creating New Session Flag to protect against infinite recursion....
+36395>>>>>                Get pbCreatingNewSession to bCreatingNewSession
+36396>>>>>                
+36396>>>>>                If (not(bCreatingNewSession)) Begin
+36398>>>>>                    If (not(bLoadWebApp)) Begin
+36400>>>>>                        Move False to bResult   //  We can only continue immediately if we were loading the webapp, other operations are not allowed!
+36401>>>>>                        Error DFERR_WEBAPP_SESSION_TIMEOUT "Your application session has timed out or is inactive, please login again."
+36402>>>>>>
+36402>>>>>                        Send NavigateRefresh of ghoWebApp          // refresh the WebApp at the client (triggers a login)
+36403>>>>>                    End
+36403>>>>>>
+36403>>>>>                    Else Begin
+36404>>>>>                        Set pbCreatingNewSession to True                    
+36405>>>>>                        Get RecreateSession of ghoWebApp to bResult 
+36406>>>>>                        Set pbCreatingNewSession to False                        
+36407>>>>>                    End
+36407>>>>>>
+36407>>>>>                End
+36407>>>>>>
+36407>>>>>            End
+36407>>>>>>
+36407>>>>>        End
+36407>>>>>>
+36407>>>>>        Else Begin
+36408>>>>>            Error DFERR_WEBAPP_BAD_SESSION_KEY "Session key not known (reload page to recreate session)"
+36409>>>>>>
+36409>>>>>        End
+36409>>>>>>
+36409>>>>>        
+36409>>>>>        Function_Return bResult
+36410>>>>>    End_Function
+36411>>>>>    
+36411>>>>>    Function UserLogin String sLoginName String sPassword Returns Boolean
+36413>>>>>        String sSessionKey sUserPassword
+36413>>>>>        Handle hoSessionDD hoUserDD
+36413>>>>>        Boolean bMatch  
+36413>>>>>        
+36413>>>>>        Get phoSessionDD to hoSessionDD
+36414>>>>>        Get phoUserDD to hoUserDD
+36415>>>>>        Integer iErr eLoginMode
+36415>>>>>        
+36415>>>>>        // Refind session record
+36415>>>>>        Get psSessionKey to sSessionKey
+36416>>>>>        Send Clear of hoSessionDD
+36417>>>>>        Move sSessionKey to WebAppSession.SessionKey
+36418>>>>>        Send Find of hoSessionDD EQ Index.1
+36419>>>>>        
+36419>>>>>        If (Found and WebAppSession.SessionKey = sSessionKey) Begin
+36421>>>>>            Get peLoginMode to eLoginMode
+36422>>>>>            
+36422>>>>>            //  Find the user
+36422>>>>>            Move sLoginName to WebAppUser.LoginName
+36423>>>>>            Send Find of hoUserDD EQ Index.1
+36424>>>>>            
+36424>>>>>            // Check username and password
+36424>>>>>            If (Found and (Lowercase(sLoginName) = Lowercase(Trim(WebAppUser.LoginName)))) Begin
+36426>>>>>                Get Field_Current_Value of hoUserDD Field WebAppUser.Password to sUserPassword
+36427>>>>>                Get ComparePasswords (Trim(sUserPassword)) (Trim(sPassword)) to bMatch
+36428>>>>>                
+36428>>>>>                If (bMatch) Begin
+36430>>>>>                    // Store the login
+36430>>>>>                    Set Field_Changed_Value of hoUserDD Field WebAppUser.LastLogin to (CurrentDateTime())
+36431>>>>>                    Get Request_Validate of hoSessionDD to iErr
+36432>>>>>                    If (iErr) Begin
+36434>>>>>                        // this should not happen. If it does its a programming error
+36434>>>>>                        Error DFERR_PROGRAM C_$WebAppSesionValidateFailed
 36435>>>>>>
-36435>>>>>        
-36435>>>>>        Get psLoginName to sLoginName
-36436>>>>>        
-36436>>>>>        Function_Return (sLoginName <> "")
-36437>>>>>    End_Function
-36438>>>>>    
-36438>>>>>    
-36438>>>>>    //
-36438>>>>>    // This procedure is called when validating a session and after logging in. Its purpose is to 
-36438>>>>>    // update properties based on the session and user data. Augment this function to update 
-36438>>>>>    // properties based on the session / user table. Note that WebAppUser and WebAppSession contain
-36438>>>>>    // the right records when this procedure is called.
-36438>>>>>    //
-36438>>>>>    // Params:
-36438>>>>>    //      bClear   True if the procedure is called before session validation to clear properties.
-36438>>>>>    //
-36438>>>>>    Procedure UpdateSessionProperties Boolean bClear
-36440>>>>>        Handle hoUserDD
-36440>>>>>        
-36440>>>>>        Get phoUserDD to hoUserDD
-36441>>>>>        
-36441>>>>>        //  Update user properties
-36441>>>>>        If (not(bClear) and HasRecord(hoUserDD)) Begin
-36443>>>>>            Set psUsername to (Trim(WebAppUser.FullName))
-36444>>>>>            Set psLoginName to (Trim(WebAppUser.LoginName))
-36445>>>>>            Set piUserRights to WebAppUser.Rights
-36446>>>>>            
-36446>>>>>            Send OnSessionPropertiesSet 
-36447>>>>>        End
-36447>>>>>>
-36447>>>>>        Else Begin
-36448>>>>>            Set psUsername to ""
-36449>>>>>            Set psLoginName to ""
-36450>>>>>            Set piUserRights to 0
-36451>>>>>            
-36451>>>>>            Send OnSessionPropertiesClear
+36435>>>>>                        Function_Return False
+36436>>>>>                    End
+36436>>>>>>
+36436>>>>>                    
+36436>>>>>                    Send Request_Save of hoSessionDD
+36437>>>>>                    
+36437>>>>>                    // Update session properties
+36437>>>>>                    Send UpdateSessionProperties False
+36438>>>>>                    Send NotifyChangeRights
+36439>>>>>                    Function_Return True
+36440>>>>>                End
+36440>>>>>>
+36440>>>>>                Else Begin
+36441>>>>>                    //  We should rely directly on this buffer elsewhere but just be sure
+36441>>>>>                    Send Clear of hoUserDD
+36442>>>>>                End
+36442>>>>>>
+36442>>>>>            End
+36442>>>>>>
+36442>>>>>        End
+36442>>>>>>
+36442>>>>>          
+36442>>>>>        Function_Return False
+36443>>>>>    End_Function
+36444>>>>>    
+36444>>>>>    Function IsLoggedIn Returns Boolean
+36446>>>>>        String sLoginName
+36446>>>>>        Boolean bLogWebSession bLoggedIn
+36446>>>>>        
+36446>>>>>        Get pbLogWebSession to bLogWebSession
+36447>>>>>        If not bLogWebSession Begin
+36449>>>>>            Forward Get IsLoggedIn to bLoggedIn
+36451>>>>>            Function_Return bLoggedIn
 36452>>>>>        End
 36452>>>>>>
-36452>>>>>    End_Procedure
-36453>>>>>    
-36453>>>>>    //
-36453>>>>>    // This function is called to perform the password comparison. It gets the entered password and
-36453>>>>>    // the password value of the user table as parameters. The WebAppUser buffer will contain the
-36453>>>>>    // right record. This function can be augmented to implement security features like storing the
-36453>>>>>    // password as a hashed value.
-36453>>>>>    //
-36453>>>>>    // Params:
-36453>>>>>    //      sUserPassword       Value of the WebAppUser.Password field.
-36453>>>>>    //      sEnteredPassword    Value entered on the login screen during login.
-36453>>>>>    //
-36453>>>>>    Function ComparePasswords String sUserPassword String sEnteredPassword Returns Boolean
-36455>>>>>        Function_Return (sUserPassword = sEnteredPassword)
-36456>>>>>    End_Function
-36457>>>>>    
-36457>>>>>    Procedure OnSessionPropertiesSet
-36459>>>>>        //  Empty event stub
-36459>>>>>    End_Procedure
-36460>>>>>    
-36460>>>>>    Procedure OnSessionPropertiesClear
-36462>>>>>        //  Empty event stub
-36462>>>>>    End_Procedure
-36463>>>>>    
-36463>>>>>    Procedure EndSession
-36465>>>>>        Integer iErr
-36465>>>>>        Boolean bLogWebSession
-36465>>>>>        Handle hoSessionDD       
-36465>>>>>        
-36465>>>>>        Get phoSessionDD to hoSessionDD
-36466>>>>>        Get pbLogWebSession to bLogWebSession
-36467>>>>>        If not bLogWebSession Begin
-36469>>>>>            Forward Send EndSession
-36471>>>>>            Procedure_Return
-36472>>>>>        End
-36472>>>>>>
-36472>>>>>            
-36472>>>>>        //  Check if session exists
-36472>>>>>        Send Clear of hoSessionDD
-36473>>>>>        Get psSessionKey to WebAppSession.SessionKey
-36474>>>>>        
-36474>>>>>        Send Find of hoSessionDD EQ Index.1
-36475>>>>>        If (Found) Begin
-36477>>>>>            Set Field_Changed_Value of hoSessionDD Field WebAppSession.Active to "N"
-36478>>>>>            Get Request_Validate of hoSessionDD to iErr
-36479>>>>>            If (iErr) Begin
-36481>>>>>                // this should not happen. If it does its a programming error
-36481>>>>>                Error DFERR_PROGRAM C_$WebAppSesionValidateFailed
-36482>>>>>>
-36482>>>>>                Procedure_Return
-36483>>>>>            End
-36483>>>>>>
-36483>>>>>            Send Request_Save of hoSessionDD
-36484>>>>>        End
-36484>>>>>>
-36484>>>>>    End_Procedure
-36485>>>>>
-36485>>>>>End_Class
-36486>>>>>
-36486>>>
-36486>>>Object oSessionManager is a cWebSessionManagerStandard
-36488>>>End_Object
-36489>>>
-36489>>>
-36489>    Use Login.wo
+36452>>>>>        
+36452>>>>>        Get psLoginName to sLoginName
+36453>>>>>        
+36453>>>>>        Function_Return (sLoginName <> "")
+36454>>>>>    End_Function
+36455>>>>>    
+36455>>>>>    
+36455>>>>>    //
+36455>>>>>    // This procedure is called when validating a session and after logging in. Its purpose is to 
+36455>>>>>    // update properties based on the session and user data. Augment this function to update 
+36455>>>>>    // properties based on the session / user table. Note that WebAppUser and WebAppSession contain
+36455>>>>>    // the right records when this procedure is called.
+36455>>>>>    //
+36455>>>>>    // Params:
+36455>>>>>    //      bClear   True if the procedure is called before session validation to clear properties.
+36455>>>>>    //
+36455>>>>>    Procedure UpdateSessionProperties Boolean bClear
+36457>>>>>        Handle hoUserDD
+36457>>>>>        
+36457>>>>>        Get phoUserDD to hoUserDD
+36458>>>>>        
+36458>>>>>        //  Update user properties
+36458>>>>>        If (not(bClear) and HasRecord(hoUserDD)) Begin
+36460>>>>>            Set psUsername to (Trim(WebAppUser.FullName))
+36461>>>>>            Set psLoginName to (Trim(WebAppUser.LoginName))
+36462>>>>>            Set piUserRights to WebAppUser.Rights
+36463>>>>>            
+36463>>>>>            Send OnSessionPropertiesSet 
+36464>>>>>        End
+36464>>>>>>
+36464>>>>>        Else Begin
+36465>>>>>            Set psUsername to ""
+36466>>>>>            Set psLoginName to ""
+36467>>>>>            Set piUserRights to 0
+36468>>>>>            
+36468>>>>>            Send OnSessionPropertiesClear
+36469>>>>>        End
+36469>>>>>>
+36469>>>>>    End_Procedure
+36470>>>>>    
+36470>>>>>    //
+36470>>>>>    // This function is called to perform the password comparison. It gets the entered password and
+36470>>>>>    // the password value of the user table as parameters. The WebAppUser buffer will contain the
+36470>>>>>    // right record. This function can be augmented to implement security features like storing the
+36470>>>>>    // password as a hashed value.
+36470>>>>>    //
+36470>>>>>    // Params:
+36470>>>>>    //      sUserPassword       Value of the WebAppUser.Password field.
+36470>>>>>    //      sEnteredPassword    Value entered on the login screen during login.
+36470>>>>>    //
+36470>>>>>    Function ComparePasswords String sUserPassword String sEnteredPassword Returns Boolean
+36472>>>>>        Function_Return (sUserPassword = sEnteredPassword)
+36473>>>>>    End_Function
+36474>>>>>    
+36474>>>>>    Procedure OnSessionPropertiesSet
+36476>>>>>        //  Empty event stub
+36476>>>>>    End_Procedure
+36477>>>>>    
+36477>>>>>    Procedure OnSessionPropertiesClear
+36479>>>>>        //  Empty event stub
+36479>>>>>    End_Procedure
+36480>>>>>    
+36480>>>>>    Procedure EndSession
+36482>>>>>        Integer iErr
+36482>>>>>        Boolean bLogWebSession
+36482>>>>>        Handle hoSessionDD       
+36482>>>>>        
+36482>>>>>        Get phoSessionDD to hoSessionDD
+36483>>>>>        Get pbLogWebSession to bLogWebSession
+36484>>>>>        If not bLogWebSession Begin
+36486>>>>>            Forward Send EndSession
+36488>>>>>            Procedure_Return
+36489>>>>>        End
+36489>>>>>>
+36489>>>>>            
+36489>>>>>        //  Check if session exists
+36489>>>>>        Send Clear of hoSessionDD
+36490>>>>>        Get psSessionKey to WebAppSession.SessionKey
+36491>>>>>        
+36491>>>>>        Send Find of hoSessionDD EQ Index.1
+36492>>>>>        If (Found) Begin
+36494>>>>>            Set Field_Changed_Value of hoSessionDD Field WebAppSession.Active to "N"
+36495>>>>>            Get Request_Validate of hoSessionDD to iErr
+36496>>>>>            If (iErr) Begin
+36498>>>>>                // this should not happen. If it does its a programming error
+36498>>>>>                Error DFERR_PROGRAM C_$WebAppSesionValidateFailed
+36499>>>>>>
+36499>>>>>                Procedure_Return
+36500>>>>>            End
+36500>>>>>>
+36500>>>>>            Send Request_Save of hoSessionDD
+36501>>>>>        End
+36501>>>>>>
+36501>>>>>    End_Procedure
+36502>>>>>
+36502>>>>>End_Class
+36503>>>>>
+36503>>>
+36503>>>Object oSessionManager is a cWebSessionManagerStandard
+36505>>>End_Object
+36506>>>
+36506>>>
+36506>    Use Login.wo
 Including file: Login.wo    (D:\DataFlex Projects\Quickstart\AppSrc\Login.wo)
-36489>>>Use cWebView.pkg
-36489>>>Use cWebForm.pkg
-36489>>>Use cWebButton.pkg
-36489>>>Use cWebPanel.pkg
-36489>>>Use cWebLabel.pkg
-36489>>>Use cWebSpacer.pkg
-36489>>>Use cWebImage.pkg
-36489>>>
-36489>>>Object oLogin is a cWebView
-36491>>>    Set piMinWidth to 250
-36492>>>    Set piMaxWidth to 420
-36493>>>    Set pbLoginModeEnforced to False
-36494>>>    Set piColumnCount to 12
-36495>>>    Set psCSSClass to "LoginView"
-36496>>>    Set pbServerOnSubmit to True
-36497>>>    
-36497>>>    Set psStateViewName to "Login"
-36498>>>    Set pbStateReplace to True  // Always replace the state so the login never becomes its own history item
-36499>>>    
-36499>>>    Property String psPrevStateHash ""  // Remember the state hash that the user navigated too so we can redirect after login
-36502>>>    
-36502>>>    Delegate Set phoLoginView to Self
-36504>>>    
-36504>>>    Object oTopSpacer is a cWebSpacer
-36506>>>        Set pbFillHeight to True
-36507>>>        Set piColumnSpan to 12
-36508>>>    End_Object
-36509>>>    
-36509>>>    Object oWarning is a cWebLabel
-36511>>>        Set pbVisible to False
-36512>>>        Set psCaption to "Invalid User ID or password. \n\rHint: 'Guest' & 'guest'."
-36513>>>        Set peAlign to alignCenter
-36514>>>        Set piColumnSpan to 12
-36515>>>        Set psCSSClass to "LoginWarning"
-36516>>>    End_Object
-36517>>>    
-36517>>>    Object oLogo is a cWebImage
-36519>>>        Set piColumnSpan to 10
-36520>>>        Set psUrl to "images/DF_Logo_Retina.png"
-36521>>>        Set pePosition to wiFit
-36522>>>        Set piColumnIndex to 1
-36523>>>        Set piHeight to 160
-36524>>>        
-36524>>>        WebSetResponsive piHeight rmMobile to 100  // Best for small smart phones
+36506>>>Use cWebView.pkg
+36506>>>Use cWebForm.pkg
+36506>>>Use cWebButton.pkg
+36506>>>Use cWebPanel.pkg
+36506>>>Use cWebLabel.pkg
+36506>>>Use cWebSpacer.pkg
+36506>>>Use cWebImage.pkg
+36506>>>
+36506>>>Object oLogin is a cWebView
+36508>>>    Set piMinWidth to 250
+36509>>>    Set piMaxWidth to 420
+36510>>>    Set pbLoginModeEnforced to False
+36511>>>    Set piColumnCount to 12
+36512>>>    Set psCSSClass to "LoginView"
+36513>>>    Set pbServerOnSubmit to True
+36514>>>    
+36514>>>    Set psStateViewName to "Login"
+36515>>>    Set pbStateReplace to True  // Always replace the state so the login never becomes its own history item
+36516>>>    
+36516>>>    Property String psPrevStateHash ""  // Remember the state hash that the user navigated too so we can redirect after login
+36519>>>    
+36519>>>    Delegate Set phoLoginView to Self
+36521>>>    
+36521>>>    Object oTopSpacer is a cWebSpacer
+36523>>>        Set pbFillHeight to True
+36524>>>        Set piColumnSpan to 12
 36525>>>    End_Object
 36526>>>    
-36526>>>    Object oLoginName is a cWebForm
-36528>>>        Set psLabel to "User ID:"
-36529>>>        Set peLabelPosition to lpTop
-36530>>>        Set piMaxLength to 20
-36531>>>        Set piColumnIndex to 1
-36532>>>        Set pbShowLabel to False
-36533>>>        Set psPlaceHolder to "loginname"
-36534>>>        Set piColumnSpan to 10
-36535>>>        Set psAutoComplete to "username"
-36536>>>    End_Object
-36537>>>    
-36537>>>    Object oPassword is a cWebForm
-36539>>>        Set psLabel to "Password:"
-36540>>>        Set pbPassword to True
-36541>>>        Set peLabelAlign to alignLeft
-36542>>>        Set piMaxLength to 20
-36543>>>        Set peLabelPosition to lpTop
-36544>>>        Set pbShowLabel to False
-36545>>>        Set psPlaceHolder to "password"
-36546>>>        Set piColumnSpan to 10
-36547>>>        Set piColumnIndex to 1
-36548>>>        Set psAutoComplete to "current-password"
-36549>>>    End_Object
-36550>>>    
-36550>>>    Object oWebSpacer1 is a cWebSpacer
-36552>>>        Set piColumnSpan to 12
-36553>>>        Set piHeight to 10
-36554>>>    End_Object
-36555>>>    
-36555>>>    Object oLoginButton is a cWebButton
-36557>>>        Set pbShowLabel to False
-36558>>>        Set psCaption to "sign in"
-36559>>>        Set pbServerOnClick to True
-36560>>>        Set piColumnSpan to 10
-36561>>>        Set piColumnIndex to 1
-36562>>>        
-36562>>>        Procedure OnClick
-36565>>>            Send DoLogin
-36566>>>        End_Procedure
-36567>>>    End_Object
-36568>>>    
-36568>>>    Object oBottomSpacer is a cWebSpacer
-36570>>>        Set pbFillHeight to True
-36571>>>        Set piColumnSpan to 12
-36572>>>    End_Object
-36573>>>    
-36573>>>    Procedure DoLogin
-36576>>>        String sLoginName sPassword sPrevStateHash
-36576>>>        Boolean bResult
-36576>>>        
-36576>>>        WebGet psValue of oLoginName to sLoginName
-36577>>>        WebGet psValue of oPassword to sPassword
-36578>>>        
-36578>>>        Get UserLogin of ghoWebSessionManager sLoginName sPassword to bResult
+36526>>>    Object oWarning is a cWebLabel
+36528>>>        Set pbVisible to False
+36529>>>        Set psCaption to "Invalid User ID or password. \n\rHint: 'Guest' & 'guest'."
+36530>>>        Set peAlign to alignCenter
+36531>>>        Set piColumnSpan to 12
+36532>>>        Set psCSSClass to "LoginWarning"
+36533>>>    End_Object
+36534>>>    
+36534>>>    Object oLogo is a cWebImage
+36536>>>        Set piColumnSpan to 10
+36537>>>        Set psUrl to "images/DF_Logo_Retina.png"
+36538>>>        Set pePosition to wiFit
+36539>>>        Set piColumnIndex to 1
+36540>>>        Set piHeight to 160
+36541>>>        
+36541>>>        WebSetResponsive piHeight rmMobile to 100  // Best for small smart phones
+36542>>>    End_Object
+36543>>>    
+36543>>>    Object oLoginName is a cWebForm
+36545>>>        Set psLabel to "User ID:"
+36546>>>        Set peLabelPosition to lpTop
+36547>>>        Set piMaxLength to 20
+36548>>>        Set piColumnIndex to 1
+36549>>>        Set pbShowLabel to False
+36550>>>        Set psPlaceHolder to "loginname"
+36551>>>        Set piColumnSpan to 10
+36552>>>        Set psAutoComplete to "username"
+36553>>>    End_Object
+36554>>>    
+36554>>>    Object oPassword is a cWebForm
+36556>>>        Set psLabel to "Password:"
+36557>>>        Set pbPassword to True
+36558>>>        Set peLabelAlign to alignLeft
+36559>>>        Set piMaxLength to 20
+36560>>>        Set peLabelPosition to lpTop
+36561>>>        Set pbShowLabel to False
+36562>>>        Set psPlaceHolder to "password"
+36563>>>        Set piColumnSpan to 10
+36564>>>        Set piColumnIndex to 1
+36565>>>        Set psAutoComplete to "current-password"
+36566>>>    End_Object
+36567>>>    
+36567>>>    Object oWebSpacer1 is a cWebSpacer
+36569>>>        Set piColumnSpan to 12
+36570>>>        Set piHeight to 10
+36571>>>    End_Object
+36572>>>    
+36572>>>    Object oLoginButton is a cWebButton
+36574>>>        Set pbShowLabel to False
+36575>>>        Set psCaption to "sign in"
+36576>>>        Set pbServerOnClick to True
+36577>>>        Set piColumnSpan to 10
+36578>>>        Set piColumnIndex to 1
 36579>>>        
-36579>>>        If (bResult) Begin
-36581>>>            Send Hide of oLogin
-36582>>>            Send ShowHeader of ghoWebApp
-36583>>>            WebSet psCSSClass of ghoWebApp to ""
-36584>>>            
-36584>>>            WebGet psPrevStateHash to sPrevStateHash
-36585>>>            Send NavigateToStateHash of ghoWebApp sPrevStateHash True
-36586>>>            
-36586>>>            // clear the login values. we don't want to return the login id & password as synchronized properties....
-36586>>>            WebSet psValue of oLoginName to ""
-36587>>>            WebSet psValue of oPassword  to ""
-36588>>>            WebSet pbVisible of oWarning to False
-36589>>>        End
-36589>>>>
-36589>>>        Else Begin
-36590>>>            WebSet pbVisible of oWarning to True
-36591>>>        End
-36591>>>>
-36591>>>    End_Procedure
-36592>>>    
-36592>>>    Procedure OnSubmit
-36595>>>        Send DoLogin
-36596>>>    End_Procedure
-36597>>>    
-36597>>>    Procedure OnLoad
-36600>>>        String sPrevStateHash sView
-36600>>>        
-36600>>>        Forward Send OnLoad
-36602>>>        
-36602>>>        //  Store the current state so we can go back to that later (only if it points to a different view)
-36602>>>        Get StateHash of ghoWebApp to sPrevStateHash
-36603>>>        Send ParseViewStateHash sPrevStateHash (&sView)
-36604>>>        If (Lowercase(sView) <> Lowercase(psStateViewName(Self))) Begin
-36606>>>            WebSet psPrevStateHash to sPrevStateHash
-36607>>>        End
-36607>>>>
-36607>>>        
-36607>>>    End_Procedure
-36608>>>    
-36608>>>    Procedure OnBeforeShow
-36611>>>        //  Hide header & apply nice background style
-36611>>>        Send HideHeader to ghoWebApp
-36612>>>        WebSet psCSSClass of ghoWebApp to "LoginBackground"
+36579>>>        Procedure OnClick
+36582>>>            Send DoLogin
+36583>>>        End_Procedure
+36584>>>    End_Object
+36585>>>    
+36585>>>    Object oBottomSpacer is a cWebSpacer
+36587>>>        Set pbFillHeight to True
+36588>>>        Set piColumnSpan to 12
+36589>>>    End_Object
+36590>>>    
+36590>>>    Procedure DoLogin
+36593>>>        String sLoginName sPassword sPrevStateHash
+36593>>>        Boolean bResult
+36593>>>        
+36593>>>        WebGet psValue of oLoginName to sLoginName
+36594>>>        WebGet psValue of oPassword to sPassword
+36595>>>        
+36595>>>        Get UserLogin of ghoWebSessionManager sLoginName sPassword to bResult
+36596>>>        
+36596>>>        If (bResult) Begin
+36598>>>            Send Hide of oLogin
+36599>>>            Send ShowHeader of ghoWebApp
+36600>>>            WebSet psCSSClass of ghoWebApp to ""
+36601>>>            
+36601>>>            WebGet psPrevStateHash to sPrevStateHash
+36602>>>            Send NavigateToStateHash of ghoWebApp sPrevStateHash True
+36603>>>            
+36603>>>            // clear the login values. we don't want to return the login id & password as synchronized properties....
+36603>>>            WebSet psValue of oLoginName to ""
+36604>>>            WebSet psValue of oPassword  to ""
+36605>>>            WebSet pbVisible of oWarning to False
+36606>>>        End
+36606>>>>
+36606>>>        Else Begin
+36607>>>            WebSet pbVisible of oWarning to True
+36608>>>        End
+36608>>>>
+36608>>>    End_Procedure
+36609>>>    
+36609>>>    Procedure OnSubmit
+36612>>>        Send DoLogin
 36613>>>    End_Procedure
 36614>>>    
-36614>>>End_Object
-36615>>>
-36615>>>
-36615>>>
-36615>>>
-36615>    Use WebResourceManager.wo
-Including file: WebResourceManager.wo    (D:\DataFlex Projects\Quickstart\AppSrc\WebResourceManager.wo)
-36615>>>Use cWebResourceManager.pkg
-36615>>>
-36615>>>Object oWebResourceManager is a cWebResourceManager
-36617>>>End_Object
-36618>    
-36618>    Use Dashboard.wo
-Including file: Dashboard.wo    (D:\DataFlex Projects\Quickstart\AppSrc\Dashboard.wo)
-36618>>>Use cWebView.pkg
-36618>>>Use cWebPanel.pkg
-36618>>>Use cWebForm.pkg
-36618>>>Use cWebButton.pkg
-36618>>>Use cWebGroup.pkg
-36618>>>Use cWebSpacer.pkg
-36618>>>Use cWebHtmlBox.pkg
-36618>>>Use cWebMenuGroup.pkg
-36618>>>Use cWebMenuItem.pkg
-36618>>>Use cWebLabel.pkg
-36618>>>Use cWebList.pkg
-36618>>>Use cWebColumn.pkg
-36618>>>
-36618>>>Object oDashboard is a cWebView
-36620>>>
-36620>>>    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
-36620>>>    // Add a DDO Structure 
-36620>>>    //
-36620>>>    // There is no need to synchronize a DD structure on the client so we do
-36620>>>    // not set the Server property or send ADDOStructure. We will simply use
-36620>>>    // DDO's to mine data and generate HTML for our cWebHTMLBox objects.
-36620>>>    // It is the HTML in these objects that is sent to the client each time 
-36620>>>    // this page is shown.
-36620>>>    //
-36620>>>    // Also, it is important for the drill-down Navigation interface that we
-36620>>>    // do not set the Server property to some DDO because this will affect 
-36620>>>    // constraints in the next view that we navigate to.
-36620>>>    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-36620>>>
-36620>>>    Set piMaxWidth to 1024
-36621>>>    
-36621>>>    Set psCaption to "Dashboard"
-36622>>>    Set peViewType to vtUndefined
-36623>>>    Set pbShowCaption to False
-36624>>>    Set psCSSClass to "Dashboard"
+36614>>>    Procedure OnLoad
+36617>>>        String sPrevStateHash sView
+36617>>>        
+36617>>>        Forward Send OnLoad
+36619>>>        
+36619>>>        //  Store the current state so we can go back to that later (only if it points to a different view)
+36619>>>        Get StateHash of ghoWebApp to sPrevStateHash
+36620>>>        Send ParseViewStateHash sPrevStateHash (&sView)
+36621>>>        If (Lowercase(sView) <> Lowercase(psStateViewName(Self))) Begin
+36623>>>            WebSet psPrevStateHash to sPrevStateHash
+36624>>>        End
+36624>>>>
+36624>>>        
+36624>>>    End_Procedure
 36625>>>    
-36625>>>    Object oWebMainPanel is a cWebPanel
-36627>>>        Set piColumnCount to 24
-36628>>>        
-36628>>>        // - - - - - - - - - - - - - - -
-36628>>>        // Main Panel's Responsive Rules
-36628>>>        // - - - - - - - - - - - - - - -
-36628>>>        WebSetResponsive piColumnCount rmMobile to 1
-36629>>>        WebSetResponsive piColumnCount rmTabletPortrait to 16
-36630>>>    
-36630>>>        Object oTiles_grp is a cWebGroup
-36632>>>            Set piColumnSpan to 8
-36633>>>            Set pbShowBorder to False
-36634>>>            Set pbShowCaption to False
-36635>>>            Set piColumnCount to 12
-36636>>>            
-36636>>>            Set psCSSClass to "TilesGroup"
-36637>>>    
-36637>>>            Object oWelcomeTile is a cWebHtmlBox
-36639>>>                Set piColumnSpan to 6
-36640>>>                Set psCSSClass to "Tile Light"
-36641>>>                Set psHtml to '<div Class="WebCon_Sizer"><div class="Tile_Title">Welcome</div><div Class="Tile_Subtitle">--</div></div>'
+36625>>>    Procedure OnBeforeShow
+36628>>>        //  Hide header & apply nice background style
+36628>>>        Send HideHeader to ghoWebApp
+36629>>>        WebSet psCSSClass of ghoWebApp to "LoginBackground"
+36630>>>    End_Procedure
+36631>>>    
+36631>>>End_Object
+36632>>>
+36632>>>
+36632>>>
+36632>>>
+36632>    Use WebResourceManager.wo
+Including file: WebResourceManager.wo    (D:\DataFlex Projects\Quickstart\AppSrc\WebResourceManager.wo)
+36632>>>Use cWebResourceManager.pkg
+36632>>>
+36632>>>Object oWebResourceManager is a cWebResourceManager
+36634>>>End_Object
+36635>    
+36635>    Use Dashboard.wo
+Including file: Dashboard.wo    (D:\DataFlex Projects\Quickstart\AppSrc\Dashboard.wo)
+36635>>>Use cWebView.pkg
+36635>>>Use cWebPanel.pkg
+36635>>>Use cWebForm.pkg
+36635>>>Use cWebButton.pkg
+36635>>>Use cWebGroup.pkg
+36635>>>Use cWebSpacer.pkg
+36635>>>Use cWebHtmlBox.pkg
+36635>>>Use cWebMenuGroup.pkg
+36635>>>Use cWebMenuItem.pkg
+36635>>>Use cWebLabel.pkg
+36635>>>Use cWebList.pkg
+36635>>>Use cWebColumn.pkg
+36635>>>
+36635>>>Object oDashboard is a cWebView
+36637>>>
+36637>>>    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+36637>>>    // Add a DDO Structure 
+36637>>>    //
+36637>>>    // There is no need to synchronize a DD structure on the client so we do
+36637>>>    // not set the Server property or send ADDOStructure. We will simply use
+36637>>>    // DDO's to mine data and generate HTML for our cWebHTMLBox objects.
+36637>>>    // It is the HTML in these objects that is sent to the client each time 
+36637>>>    // this page is shown.
+36637>>>    //
+36637>>>    // Also, it is important for the drill-down Navigation interface that we
+36637>>>    // do not set the Server property to some DDO because this will affect 
+36637>>>    // constraints in the next view that we navigate to.
+36637>>>    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+36637>>>
+36637>>>    Set piMaxWidth to 1024
+36638>>>    
+36638>>>    Set psCaption to "Dashboard"
+36639>>>    Set peViewType to vtUndefined
+36640>>>    Set pbShowCaption to False
+36641>>>    Set psCSSClass to "Dashboard"
 36642>>>    
-36642>>>                Procedure OnLoad
-36645>>>                    Send UpdateHTML ('<div class="WebCon_Sizer">' + ;                                     '<div class="Tile_Title">Welcome</div>' +;                                     '<div class="Tile_Subtitle">' - htmlEncode(psUserName(ghoWebSessionManager)) - '</div>' +;                                     '</div>')
-36646>>>                End_Procedure
-36647>>>                
-36647>>>            End_Object
-36648>>>    
-36648>>>            Object oTile2 is a cWebHtmlBox
-36650>>>                Set pbServerOnClick to True
-36651>>>                Set piColumnSpan to 6
-36652>>>                Set piColumnIndex to 6
-36653>>>                Set psCSSClass to "Tile LightAlternate"
-36654>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Tile 2</div><div class="Tile_Subtitle"></div></div>'
-36655>>>                                
-36655>>>                // WebRegisterPath ntNavigateForwardCustom oYourViewName
-36655>>>                
-36655>>>                Procedure OnClick String sId String sParam
-36658>>>                    Send NavigatePath
-36659>>>                End_Procedure
-36660>>>                
-36660>>>            End_Object
-36661>>>    
-36661>>>            Object oTile3 is a cWebHtmlBox
-36663>>>                Set pbServerOnClick to True
-36664>>>                Set piColumnSpan to 6
-36665>>>                Set psCSSClass to "Tile Dark"
-36666>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Tile 3</div><div class="Tile_Subtitle"></div></div>'
-36667>>>    
-36667>>>                // WebRegisterPath ntNavigateForwardCustom oYourViewName
-36667>>>                
-36667>>>                Procedure OnClick String sId String sParam
-36670>>>                    Send NavigatePath
-36671>>>                End_Procedure
+36642>>>    Object oWebMainPanel is a cWebPanel
+36644>>>        Set piColumnCount to 24
+36645>>>        
+36645>>>        // - - - - - - - - - - - - - - -
+36645>>>        // Main Panel's Responsive Rules
+36645>>>        // - - - - - - - - - - - - - - -
+36645>>>        WebSetResponsive piColumnCount rmMobile to 1
+36646>>>        WebSetResponsive piColumnCount rmTabletPortrait to 16
+36647>>>    
+36647>>>        Object oTiles_grp is a cWebGroup
+36649>>>            Set piColumnSpan to 8
+36650>>>            Set pbShowBorder to False
+36651>>>            Set pbShowCaption to False
+36652>>>            Set piColumnCount to 12
+36653>>>            
+36653>>>            Set psCSSClass to "TilesGroup"
+36654>>>    
+36654>>>            Object oWelcomeTile is a cWebHtmlBox
+36656>>>                Set piColumnSpan to 6
+36657>>>                Set psCSSClass to "Tile Light"
+36658>>>                Set psHtml to '<div Class="WebCon_Sizer"><div class="Tile_Title">Welcome</div><div Class="Tile_Subtitle">--</div></div>'
+36659>>>    
+36659>>>                Procedure OnLoad
+36662>>>                    Send UpdateHTML ('<div class="WebCon_Sizer">' + ;                                     '<div class="Tile_Title">Welcome</div>' +;                                     '<div class="Tile_Subtitle">' - htmlEncode(psUserName(ghoWebSessionManager)) - '</div>' +;                                     '</div>')
+36663>>>                End_Procedure
+36664>>>                
+36664>>>            End_Object
+36665>>>    
+36665>>>            Object oTile2 is a cWebHtmlBox
+36667>>>                Set pbServerOnClick to True
+36668>>>                Set piColumnSpan to 6
+36669>>>                Set piColumnIndex to 6
+36670>>>                Set psCSSClass to "Tile LightAlternate"
+36671>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Tile 2</div><div class="Tile_Subtitle"></div></div>'
+36672>>>                                
+36672>>>                // WebRegisterPath ntNavigateForwardCustom oYourViewName
 36672>>>                
-36672>>>            End_Object
-36673>>>    
-36673>>>            Object oTile4 is a cWebHtmlBox
-36675>>>                Set pbServerOnClick to True
-36676>>>                Set piColumnSpan to 6
-36677>>>                Set piColumnIndex to 6
-36678>>>                Set psCSSClass to "Tile DarkAlternate"
-36679>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Tile 4</div><div class="Tile_Subtitle"></div></div>'
-36680>>>            
-36680>>>                // WebRegisterPath ntNavigateForwardCustom oYourViewName
-36680>>>                
-36680>>>                Procedure OnClick String sId String sParam
-36683>>>                    Send NavigatePath
-36684>>>                End_Procedure
-36685>>>                
-36685>>>            End_Object
-36686>>>        End_Object
-36687>>>    
-36687>>>    End_Object
-36688>>>    
-36688>>>    Procedure OnBeforeShow
-36691>>>        // Each time this view is shown we will update the appropriate information.
-36691>>>    End_Procedure
-36692>>>
-36692>>>End_Object
-36693>    Use ZoomPerson.wo
+36672>>>                Procedure OnClick String sId String sParam
+36675>>>                    Send NavigatePath
+36676>>>                End_Procedure
+36677>>>                
+36677>>>            End_Object
+36678>>>    
+36678>>>            Object oTile3 is a cWebHtmlBox
+36680>>>                Set pbServerOnClick to True
+36681>>>                Set piColumnSpan to 6
+36682>>>                Set psCSSClass to "Tile Dark"
+36683>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Tile 3</div><div class="Tile_Subtitle"></div></div>'
+36684>>>    
+36684>>>                // WebRegisterPath ntNavigateForwardCustom oYourViewName
+36684>>>                
+36684>>>                Procedure OnClick String sId String sParam
+36687>>>                    Send NavigatePath
+36688>>>                End_Procedure
+36689>>>                
+36689>>>            End_Object
+36690>>>    
+36690>>>            Object oTile4 is a cWebHtmlBox
+36692>>>                Set pbServerOnClick to True
+36693>>>                Set piColumnSpan to 6
+36694>>>                Set piColumnIndex to 6
+36695>>>                Set psCSSClass to "Tile DarkAlternate"
+36696>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Tile 4</div><div class="Tile_Subtitle"></div></div>'
+36697>>>            
+36697>>>                // WebRegisterPath ntNavigateForwardCustom oYourViewName
+36697>>>                
+36697>>>                Procedure OnClick String sId String sParam
+36700>>>                    Send NavigatePath
+36701>>>                End_Procedure
+36702>>>                
+36702>>>            End_Object
+36703>>>        End_Object
+36704>>>    
+36704>>>    End_Object
+36705>>>    
+36705>>>    Procedure OnBeforeShow
+36708>>>        // Each time this view is shown we will update the appropriate information.
+36708>>>    End_Procedure
+36709>>>
+36709>>>End_Object
+36710>    Use ZoomPerson.wo
 Including file: ZoomPerson.wo    (D:\DataFlex Projects\Quickstart\AppSrc\ZoomPerson.wo)
-36693>>>// D:\DataFlex Projects\Quickstart\AppSrc\ZoomPerson.wo
-36693>>>// ZoomPerson
-36693>>>//
-36693>>>
-36693>>>Use cWebView.pkg
-36693>>>Use cWebPanel.pkg
-36693>>>Use cWebMenuGroup.pkg
-36693>>>Use cWebMenuItem.pkg
-36693>>>Use cWebForm.pkg
-36693>>>Use cWebTabContainer.pkg
-36693>>>Use cWebTabPage.pkg
-36693>>>Use cWebEdit.pkg
-36693>>>
-36693>>>Use cPersonDataDictionary.dd
+36710>>>// D:\DataFlex Projects\Quickstart\AppSrc\ZoomPerson.wo
+36710>>>// ZoomPerson
+36710>>>//
+36710>>>
+36710>>>Use cWebView.pkg
+36710>>>Use cWebPanel.pkg
+36710>>>Use cWebMenuGroup.pkg
+36710>>>Use cWebMenuItem.pkg
+36710>>>Use cWebForm.pkg
+36710>>>Use cWebTabContainer.pkg
+36710>>>Use cWebTabPage.pkg
+36710>>>Use cWebEdit.pkg
+36710>>>
+36710>>>Use cPersonDataDictionary.dd
 Including file: cPersonDataDictionary.dd    (D:\DataFlex Projects\Quickstart\DDSrc\cPersonDataDictionary.dd)
-36693>>>>>Use DataDict.pkg
-36693>>>>>
-36693>>>>>Open Person
-Including file: Person.fd    (D:\DataFlex Projects\Quickstart\DDSrc\Person.fd)
-36695>>>>>
-36695>>>>>Class cPersonDataDictionary is a DataDictionary
-36696>>>>>    
-36696>>>>>    Procedure Construct_Object
-36698>>>>>        Forward Send Construct_Object
-36700>>>>>        Set Main_File to Person.File_Number
-36701>>>>>
-36701>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
-36702>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
-36703>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
-36704>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
-36705>>>>>
-36705>>>>>        Set Key_Field_State Field Person.PersonId to True
-36706>>>>>
-36706>>>>>        Set Field_Label_Short Field Person.LastName to "Last name"
-36707>>>>>        Set Field_Option Field Person.LastName DD_REQUIRED to True
-36708>>>>>
-36708>>>>>        Set Field_Label_Short Field Person.FirstName to "First name"
-36709>>>>>        Set Field_Option Field Person.FirstName DD_REQUIRED to True
+36710>>>>>Use DataDict.pkg
 36710>>>>>
-36710>>>>>    End_Procedure
-36711>>>>>
-36711>>>>>End_Class
-36712>>>
-36712>>>Object oZoomPerson is a cWebView
-36714>>>    Set piColumnCount to 12
-36715>>>    Set psCaption to "Person Info"
-36716>>>    Set peWebViewStyle to wvsDrilldown
-36717>>>    Set peViewType to vtZoom
-36718>>>    Set pbShowCaption to False
-36719>>>    Set Verify_Save_Msg to 0
-36720>>>    Set piMaxWidth to 1024
-36721>>>
-36721>>>    Object oPerson_DD is a cPersonDataDictionary
-36723>>>    End_Object 
-36724>>>
-36724>>>    Set Main_DD To oPerson_DD
-36725>>>    Set Server  To oPerson_DD
-36726>>>
-36726>>>
-36726>>>    Object oWebMainPanel is a cWebPanel
-36728>>>        Set piColumnCount to 12
+36710>>>>>Open Person
+Including file: Person.fd    (D:\DataFlex Projects\Quickstart\DDSrc\Person.fd)
+36712>>>>>
+36712>>>>>Class cPersonDataDictionary is a DataDictionary
+36713>>>>>    
+36713>>>>>    Procedure Construct_Object
+36715>>>>>        Forward Send Construct_Object
+36717>>>>>        Set Main_File to Person.File_Number
+36718>>>>>
+36718>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+36719>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+36720>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+36721>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+36722>>>>>
+36722>>>>>        Set Key_Field_State Field Person.PersonId to True
+36723>>>>>
+36723>>>>>        Set Field_Label_Short Field Person.LastName to "Last name"
+36724>>>>>        Set Field_Option Field Person.LastName DD_REQUIRED to True
+36725>>>>>
+36725>>>>>        Set Field_Label_Short Field Person.FirstName to "First name"
+36726>>>>>        Set Field_Option Field Person.FirstName DD_REQUIRED to True
+36727>>>>>
+36727>>>>>    End_Procedure
+36728>>>>>
+36728>>>>>End_Class
 36729>>>
-36729>>>        Object oPersonFirstName is a cWebForm
-36731>>>            Entry_Item Person.FirstName
-36732>>>            Set piColumnSpan to 6
-36733>>>            Set piColumnIndex to 0
-36734>>>            Set peLabelPosition to lpTop
-36735>>>            Set psLabel to "First name"
-36736>>>        End_Object 
-36737>>>        WebSetResponsive piColumnCount rmMobile to 4
+36729>>>Object oZoomPerson is a cWebView
+36731>>>    Set piColumnCount to 12
+36732>>>    Set psCaption to "Person Info"
+36733>>>    Set peWebViewStyle to wvsDrilldown
+36734>>>    Set peViewType to vtZoom
+36735>>>    Set pbShowCaption to False
+36736>>>    Set Verify_Save_Msg to 0
+36737>>>    Set piMaxWidth to 1024
 36738>>>
-36738>>>        Object oPersonLastName is a cWebForm
-36740>>>            Entry_Item Person.LastName
-36741>>>            Set piColumnSpan to 6
-36742>>>            Set piColumnIndex to 6
-36743>>>            Set peLabelPosition to lpTop
-36744>>>            Set psLabel to "Last name"
-36745>>>        End_Object 
+36738>>>    Object oPerson_DD is a cPersonDataDictionary
+36740>>>    End_Object 
+36741>>>
+36741>>>    Set Main_DD To oPerson_DD
+36742>>>    Set Server  To oPerson_DD
+36743>>>
+36743>>>
+36743>>>    Object oWebMainPanel is a cWebPanel
+36745>>>        Set piColumnCount to 12
 36746>>>
-36746>>>        Object oWebTabContainer is a cWebTabContainer
-36748>>>            Set pbFillHeight to True
-36749>>>            Set piColumnSpan to 12
-36750>>>            Set pbShowLabel to False
-36751>>>
-36751>>>            Object oPage1 is a cWebTabPage
-36753>>>                Set piColumnCount to 12
-36754>>>                Set psCaption to "Contact"
-36755>>>                WebSetResponsive piColumnCount rmMobile to 4
-36756>>>
-36756>>>                Object oPersonAddress is a cWebForm
-36758>>>                    Entry_Item Person.Address
-36759>>>                    Set piColumnSpan to 12
-36760>>>                    Set piColumnIndex to 0
-36761>>>                    Set peLabelPosition to lpTop
-36762>>>                    Set psLabel to "Address"
-36763>>>                End_Object 
-36764>>>
-36764>>>                Object oPersonZip is a cWebForm
-36766>>>                    Entry_Item Person.Zip
-36767>>>                    Set piColumnSpan to 7
-36768>>>                    Set piColumnIndex to 0
-36769>>>                    Set peLabelPosition to lpTop
-36770>>>                    Set psLabel to "Zip"
-36771>>>                End_Object 
-36772>>>
-36772>>>                Object oPersonCity is a cWebForm
-36774>>>                    Entry_Item Person.City
-36775>>>                    Set piColumnSpan to 11
-36776>>>                    Set piColumnIndex to 0
-36777>>>                    Set peLabelPosition to lpTop
-36778>>>                    Set psLabel to "City"
-36779>>>                End_Object 
-36780>>>
-36780>>>                Object oPersonPhone is a cWebForm
-36782>>>                    Entry_Item Person.Phone
-36783>>>                    Set piColumnSpan to 5
-36784>>>                    Set piColumnIndex to 0
-36785>>>                    Set peLabelPosition to lpTop
-36786>>>                    Set psLabel to "Phone"
-36787>>>                End_Object 
-36788>>>            End_Object 
+36746>>>        Object oPersonFirstName is a cWebForm
+36748>>>            Entry_Item Person.FirstName
+36749>>>            Set piColumnSpan to 6
+36750>>>            Set piColumnIndex to 0
+36751>>>            Set peLabelPosition to lpTop
+36752>>>            Set psLabel to "First name"
+36753>>>        End_Object 
+36754>>>        WebSetResponsive piColumnCount rmMobile to 4
+36755>>>
+36755>>>        Object oPersonLastName is a cWebForm
+36757>>>            Entry_Item Person.LastName
+36758>>>            Set piColumnSpan to 6
+36759>>>            Set piColumnIndex to 6
+36760>>>            Set peLabelPosition to lpTop
+36761>>>            Set psLabel to "Last name"
+36762>>>        End_Object 
+36763>>>
+36763>>>        Object oWebTabContainer is a cWebTabContainer
+36765>>>            Set pbFillHeight to True
+36766>>>            Set piColumnSpan to 12
+36767>>>            Set pbShowLabel to False
+36768>>>
+36768>>>            Object oPage1 is a cWebTabPage
+36770>>>                Set piColumnCount to 12
+36771>>>                Set psCaption to "Contact"
+36772>>>                WebSetResponsive piColumnCount rmMobile to 4
+36773>>>
+36773>>>                Object oPersonAddress is a cWebForm
+36775>>>                    Entry_Item Person.Address
+36776>>>                    Set piColumnSpan to 12
+36777>>>                    Set piColumnIndex to 0
+36778>>>                    Set peLabelPosition to lpTop
+36779>>>                    Set psLabel to "Address"
+36780>>>                End_Object 
+36781>>>
+36781>>>                Object oPersonZip is a cWebForm
+36783>>>                    Entry_Item Person.Zip
+36784>>>                    Set piColumnSpan to 7
+36785>>>                    Set piColumnIndex to 0
+36786>>>                    Set peLabelPosition to lpTop
+36787>>>                    Set psLabel to "Zip"
+36788>>>                End_Object 
 36789>>>
-36789>>>            Object oPage2 is a cWebTabPage
-36791>>>                Set piColumnCount to 12
-36792>>>                Set psCaption to "Comments"
-36793>>>                WebSetResponsive piColumnCount rmMobile to 4
-36794>>>
-36794>>>                Object oPersonComments is a cWebEdit
-36796>>>                    Entry_Item Person.Comments
-36797>>>                    Set piColumnSpan to 0
-36798>>>                    Set piColumnIndex to 0
-36799>>>                    Set peLabelPosition to lpTop
-36800>>>                    Set psLabel to "Comments"
-36801>>>                    Set piMinHeight to 150
-36802>>>                    Set pbFillHeight to True
-36803>>>                End_Object 
-36804>>>            End_Object 
-36805>>>        End_Object 
-36806>>>    End_Object 
-36807>>>
-36807>>>    Object oActionGroup is a cWebMenuGroup
-36809>>>
-36809>>>        Object oSaveBtn is a cWebMenuItem
-36811>>>            Set psCSSClass to "WebSaveMenuItem"
-36812>>>            Set psCaption to "Save"
-36813>>>
-36813>>>            Procedure OnClick
-36816>>>                Send Request_Save
-36817>>>            End_Procedure
-36818>>>
-36818>>>        End_Object 
-36819>>>
-36819>>>        Object oEditBtn is a cWebMenuItem
-36821>>>            Set psCSSClass to "WebEditMenuItem"
-36822>>>            Set psCaption to "Edit"
-36823>>>            Procedure OnClick
-36826>>>                Send ChangeEditMode True
-36827>>>                Send SetActionButtons
-36828>>>            End_Procedure
-36829>>>
-36829>>>        End_Object 
+36789>>>                Object oPersonCity is a cWebForm
+36791>>>                    Entry_Item Person.City
+36792>>>                    Set piColumnSpan to 11
+36793>>>                    Set piColumnIndex to 0
+36794>>>                    Set peLabelPosition to lpTop
+36795>>>                    Set psLabel to "City"
+36796>>>                End_Object 
+36797>>>
+36797>>>                Object oPersonPhone is a cWebForm
+36799>>>                    Entry_Item Person.Phone
+36800>>>                    Set piColumnSpan to 5
+36801>>>                    Set piColumnIndex to 0
+36802>>>                    Set peLabelPosition to lpTop
+36803>>>                    Set psLabel to "Phone"
+36804>>>                End_Object 
+36805>>>            End_Object 
+36806>>>
+36806>>>            Object oPage2 is a cWebTabPage
+36808>>>                Set piColumnCount to 12
+36809>>>                Set psCaption to "Comments"
+36810>>>                WebSetResponsive piColumnCount rmMobile to 4
+36811>>>
+36811>>>                Object oPersonComments is a cWebEdit
+36813>>>                    Entry_Item Person.Comments
+36814>>>                    Set piColumnSpan to 0
+36815>>>                    Set piColumnIndex to 0
+36816>>>                    Set peLabelPosition to lpTop
+36817>>>                    Set psLabel to "Comments"
+36818>>>                    Set piMinHeight to 150
+36819>>>                    Set pbFillHeight to True
+36820>>>                End_Object 
+36821>>>            End_Object 
+36822>>>        End_Object 
+36823>>>    End_Object 
+36824>>>
+36824>>>    Object oActionGroup is a cWebMenuGroup
+36826>>>
+36826>>>        Object oSaveBtn is a cWebMenuItem
+36828>>>            Set psCSSClass to "WebSaveMenuItem"
+36829>>>            Set psCaption to "Save"
 36830>>>
-36830>>>        Object oDeleteBtn is a cWebMenuItem
-36832>>>            Set psCSSClass to "WebDeleteMenuItem"
-36833>>>            Set psCaption to "Delete"
-36834>>>            Set peActionDisplay to adMenu
+36830>>>            Procedure OnClick
+36833>>>                Send Request_Save
+36834>>>            End_Procedure
 36835>>>
-36835>>>            Procedure OnClick
-36838>>>                Send Request_Delete
-36839>>>            End_Procedure
-36840>>>
-36840>>>        End_Object 
-36841>>>
-36841>>>        Object oCancelChangesBtn is a cWebMenuItem
-36843>>>            Set psCSSClass to "WebIcon_Refresh"
-36844>>>            Set psCaption to "Clear Changes"
-36845>>>            Set peActionDisplay to adMenu
-36846>>>            Procedure OnClick
-36849>>>                Send RefreshRecord
-36850>>>            End_Procedure
-36851>>>
-36851>>>        End_Object 
-36852>>>    End_Object 
-36853>>>
-36853>>>    Procedure SetActionButtons
-36856>>>        tWebNavigateData NavigateData
-36856>>>        tWebNavigateData NavigateData
-36856>>>        Boolean bHasRecord
-36856>>>        Handle hoDD
-36856>>>
-36856>>>        Get Server to hoDD
-36857>>>        Get GetNavigateData to NavigateData
-36858>>>        Get HasRecord of hoDD to bHasRecord
-36859>>>
-36859>>>        // let's hide all buttons and then Show the ones we want
-36859>>>        WebSet pbRender of oEditBtn to False
-36860>>>        WebSet pbRender of oSaveBtn to False
-36861>>>        WebSet pbRender of oCancelChangesBtn to False
-36862>>>        WebSet pbRender of oDeleteBtn to False
-36863>>>
-36863>>>        If (NavigateData.bReadOnly) Begin
-36865>>>            WebSet pbRender of oEditBtn to True
-36866>>>        End
-36866>>>>
-36866>>>        Else Begin
-36867>>>            WebSet pbRender of oSaveBtn to True
-36868>>>            WebSet pbRender of oCancelChangesBtn to True
-36869>>>            WebSet pbRender of oDeleteBtn to bHasRecord
-36870>>>        End
-36870>>>>
-36870>>>    End_Procedure
-36871>>>
-36871>>>    Procedure OnViewSaved Handle hoServer Boolean bChanged
-36874>>>        // Close after save
-36874>>>        Send NavigateClose Self
-36875>>>    End_Procedure
+36835>>>        End_Object 
+36836>>>
+36836>>>        Object oEditBtn is a cWebMenuItem
+36838>>>            Set psCSSClass to "WebEditMenuItem"
+36839>>>            Set psCaption to "Edit"
+36840>>>            Procedure OnClick
+36843>>>                Send ChangeEditMode True
+36844>>>                Send SetActionButtons
+36845>>>            End_Procedure
+36846>>>
+36846>>>        End_Object 
+36847>>>
+36847>>>        Object oDeleteBtn is a cWebMenuItem
+36849>>>            Set psCSSClass to "WebDeleteMenuItem"
+36850>>>            Set psCaption to "Delete"
+36851>>>            Set peActionDisplay to adMenu
+36852>>>
+36852>>>            Procedure OnClick
+36855>>>                Send Request_Delete
+36856>>>            End_Procedure
+36857>>>
+36857>>>        End_Object 
+36858>>>
+36858>>>        Object oCancelChangesBtn is a cWebMenuItem
+36860>>>            Set psCSSClass to "WebIcon_Refresh"
+36861>>>            Set psCaption to "Clear Changes"
+36862>>>            Set peActionDisplay to adMenu
+36863>>>            Procedure OnClick
+36866>>>                Send RefreshRecord
+36867>>>            End_Procedure
+36868>>>
+36868>>>        End_Object 
+36869>>>    End_Object 
+36870>>>
+36870>>>    Procedure SetActionButtons
+36873>>>        tWebNavigateData NavigateData
+36873>>>        tWebNavigateData NavigateData
+36873>>>        Boolean bHasRecord
+36873>>>        Handle hoDD
+36873>>>
+36873>>>        Get Server to hoDD
+36874>>>        Get GetNavigateData to NavigateData
+36875>>>        Get HasRecord of hoDD to bHasRecord
 36876>>>
-36876>>>    // this will close the view after a delete
-36876>>>    Procedure OnViewDeleted Handle hoDDO
-36879>>>        Send NavigateClose Self
-36880>>>    End_Procedure
-36881>>>
-36881>>>    Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
-36884>>>        Case Begin
-36884>>>            Case (NavigateData.eNavigateType = nfFromMain)
-36886>>>                // If from main, this is a propbably a main file Select to Zoom.
-36886>>>                Case Break
-36887>>>
-36887>>>            Case (NavigateData.eNavigateType = nfFromParent)
-36890>>>                // If from parent, this is a constrained drill down.
-36890>>>                Case Break
-36891>>>
-36891>>>            Case (NavigateData.eNavigateType = nfFromChild)
-36894>>>                // If from child, this is a probably a parent Zoom from a Zoom.
-36894>>>                Case Break
-36895>>>
-36895>>>            Case Else // must be nfUndefined
-36895>>>
-36895>>>        Case End
-36895>>>
-36895>>>        Send SetActionButtons
-36896>>>
-36896>>>    End_Procedure
-36897>>>
-36897>>>End_Object 
-36898>    Use SelectPerson.wo
+36876>>>        // let's hide all buttons and then Show the ones we want
+36876>>>        WebSet pbRender of oEditBtn to False
+36877>>>        WebSet pbRender of oSaveBtn to False
+36878>>>        WebSet pbRender of oCancelChangesBtn to False
+36879>>>        WebSet pbRender of oDeleteBtn to False
+36880>>>
+36880>>>        If (NavigateData.bReadOnly) Begin
+36882>>>            WebSet pbRender of oEditBtn to True
+36883>>>        End
+36883>>>>
+36883>>>        Else Begin
+36884>>>            WebSet pbRender of oSaveBtn to True
+36885>>>            WebSet pbRender of oCancelChangesBtn to True
+36886>>>            WebSet pbRender of oDeleteBtn to bHasRecord
+36887>>>        End
+36887>>>>
+36887>>>    End_Procedure
+36888>>>
+36888>>>    Procedure OnViewSaved Handle hoServer Boolean bChanged
+36891>>>        // Close after save
+36891>>>        Send NavigateClose Self
+36892>>>    End_Procedure
+36893>>>
+36893>>>    // this will close the view after a delete
+36893>>>    Procedure OnViewDeleted Handle hoDDO
+36896>>>        Send NavigateClose Self
+36897>>>    End_Procedure
+36898>>>
+36898>>>    Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
+36901>>>        Case Begin
+36901>>>            Case (NavigateData.eNavigateType = nfFromMain)
+36903>>>                // If from main, this is a propbably a main file Select to Zoom.
+36903>>>                Case Break
+36904>>>
+36904>>>            Case (NavigateData.eNavigateType = nfFromParent)
+36907>>>                // If from parent, this is a constrained drill down.
+36907>>>                Case Break
+36908>>>
+36908>>>            Case (NavigateData.eNavigateType = nfFromChild)
+36911>>>                // If from child, this is a probably a parent Zoom from a Zoom.
+36911>>>                Case Break
+36912>>>
+36912>>>            Case Else // must be nfUndefined
+36912>>>
+36912>>>        Case End
+36912>>>
+36912>>>        Send SetActionButtons
+36913>>>
+36913>>>    End_Procedure
+36914>>>
+36914>>>End_Object 
+36915>    Use SelectPerson.wo
 Including file: SelectPerson.wo    (D:\DataFlex Projects\Quickstart\AppSrc\SelectPerson.wo)
-36898>>>// D:\DataFlex Projects\Quickstart\AppSrc\SelectPerson.wo
-36898>>>// Person
-36898>>>//
-36898>>>
-36898>>>Use cWebView.pkg
-36898>>>Use cWebList.pkg
-36898>>>Use cWebMenuGroup.pkg
-36898>>>Use cWebMenuItem.pkg
-36898>>>Use cWebColumnButton.pkg
-36898>>>Use cWebColumn.pkg
-36898>>>Use ZoomPerson.wo
-36898>>>Use cPersonDataDictionary.dd
-36898>>>
-36898>>>Object oSelectPerson is a cWebView
-36900>>>    Set psCaption to "Persons List"
-36901>>>    Set peWebViewStyle to wvsDrilldown
-36902>>>    Set peViewType to vtSelect
-36903>>>    Set piColumnCount to 12
-36904>>>    Set pbShowCaption to False
-36905>>>    Set piMaxWidth to 1024
-36906>>>
-36906>>>    Object oPerson_DD is a cPersonDataDictionary
-36908>>>    End_Object 
-36909>>>
-36909>>>    Set Main_DD to oPerson_DD
-36910>>>    Set Server  to oPerson_DD
-36911>>>
-36911>>>
-36911>>>    Object oList is a cWebList
-36913>>>        Set piColumnSpan to 0
-36914>>>        Set psCSSClass to "MobileList"
-36915>>>        Set pbServerOnRowClick to True
-36916>>>        Set pbFillHeight to True
-36917>>>        Set pbShowHeader to False
-36918>>>        Set piSortColumn to 0
-36919>>>
-36919>>>        Object oPersonLastName is a cWebColumn
-36921>>>            Entry_Item Person.LastName
-36922>>>            Set psCaption to "Person.LastName"
-36923>>>            Set piWidth to 435
-36924>>>            Set psCSSClass to "RowCaption"
-36925>>>        End_Object 
+36915>>>// D:\DataFlex Projects\Quickstart\AppSrc\SelectPerson.wo
+36915>>>// Person
+36915>>>//
+36915>>>
+36915>>>Use cWebView.pkg
+36915>>>Use cWebList.pkg
+36915>>>Use cWebMenuGroup.pkg
+36915>>>Use cWebMenuItem.pkg
+36915>>>Use cWebColumnButton.pkg
+36915>>>Use cWebColumn.pkg
+36915>>>Use ZoomPerson.wo
+36915>>>Use cPersonDataDictionary.dd
+36915>>>
+36915>>>Object oSelectPerson is a cWebView
+36917>>>    Set psCaption to "Persons List"
+36918>>>    Set peWebViewStyle to wvsDrilldown
+36919>>>    Set peViewType to vtSelect
+36920>>>    Set piColumnCount to 12
+36921>>>    Set pbShowCaption to False
+36922>>>    Set piMaxWidth to 1024
+36923>>>
+36923>>>    Object oPerson_DD is a cPersonDataDictionary
+36925>>>    End_Object 
 36926>>>
-36926>>>        Object oPersonFirstName is a cWebColumn
-36928>>>            Entry_Item Person.FirstName
-36929>>>            Set psCaption to "Person.FirstName"
-36930>>>            Set piWidth to 435
-36931>>>            Set psCSSClass to "RowCaption"
-36932>>>        End_Object 
-36933>>>
-36933>>>        Object oDetailButton is a cWebColumnButton
-36935>>>            Set psCaption to "btn"
-36936>>>            Set piWidth to 45
-36937>>>            Set pbFixedWidth to True
-36938>>>            Set pbResizable to False
-36939>>>            Set piListRowSpan to 2
-36940>>>            Set psBtnCssClass to "WebButtonIcon WebIcon_Info"
-36941>>>            Set peAlign to alignRight
-36942>>>
-36942>>>            WebRegisterPath ntNavigateForward oZoomPerson
-36948>>>
-36948>>>            Procedure OnClick
-36951>>>                Send NavigatePath
-36952>>>            End_Procedure
-36953>>>
-36953>>>            Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
-36956>>>                Move True to NavigateData.bReadOnly
-36957>>>            End_Procedure
-36958>>>
-36958>>>        End_Object 
+36926>>>    Set Main_DD to oPerson_DD
+36927>>>    Set Server  to oPerson_DD
+36928>>>
+36928>>>
+36928>>>    Object oList is a cWebList
+36930>>>        Set piColumnSpan to 0
+36931>>>        Set psCSSClass to "MobileList"
+36932>>>        Set pbServerOnRowClick to True
+36933>>>        Set pbFillHeight to True
+36934>>>        Set pbShowHeader to False
+36935>>>        Set piSortColumn to 0
+36936>>>
+36936>>>        Object oPersonLastName is a cWebColumn
+36938>>>            Entry_Item Person.LastName
+36939>>>            Set psCaption to "Person.LastName"
+36940>>>            Set piWidth to 435
+36941>>>            Set psCSSClass to "RowCaption"
+36942>>>        End_Object 
+36943>>>
+36943>>>        Object oPersonFirstName is a cWebColumn
+36945>>>            Entry_Item Person.FirstName
+36946>>>            Set psCaption to "Person.FirstName"
+36947>>>            Set piWidth to 435
+36948>>>            Set psCSSClass to "RowCaption"
+36949>>>        End_Object 
+36950>>>
+36950>>>        Object oDetailButton is a cWebColumnButton
+36952>>>            Set psCaption to "btn"
+36953>>>            Set piWidth to 45
+36954>>>            Set pbFixedWidth to True
+36955>>>            Set pbResizable to False
+36956>>>            Set piListRowSpan to 2
+36957>>>            Set psBtnCssClass to "WebButtonIcon WebIcon_Info"
+36958>>>            Set peAlign to alignRight
 36959>>>
-36959>>>        Object oPersonCity is a cWebColumn
-36961>>>            Entry_Item Person.City
-36962>>>            Set psCaption to "Person.City"
-36963>>>            Set piWidth to 652
-36964>>>            Set piListColSpan to 2
-36965>>>            Set pbNewLine to True
-36966>>>            Set psCSSClass to "RowDetail"
-36967>>>        End_Object 
-36968>>>
-36968>>>// ToDo: Fill in the from-parent child Select view object name for navigate forward
-36968>>>//        WebRegisterPath ntNavigateForward oSelectView
-36968>>>
-36968>>>        Procedure OnRowClick String sRowId
-36971>>>            tWebNavigateData NavigateData
-36971>>>            tWebNavigateData NavigateData
-36971>>>            Get GetNavigateData to NavigateData
-36972>>>
-36972>>>            Case Begin
-36972>>>                Case (NavigateData.eNavigateType = nfFromParent)
-36974>>>// ToDo: Fill in the from-parent child Select view object name for navigate forward
-36974>>>Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-36975>>>>
-36975>>>//                    Send NavigateForward of oSelectView Self
-36975>>>                    Case Break
+36959>>>            WebRegisterPath ntNavigateForward oZoomPerson
+36965>>>
+36965>>>            Procedure OnClick
+36968>>>                Send NavigatePath
+36969>>>            End_Procedure
+36970>>>
+36970>>>            Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
+36973>>>                Move True to NavigateData.bReadOnly
+36974>>>            End_Procedure
+36975>>>
+36975>>>        End_Object 
 36976>>>
-36976>>>                Case (NavigateData.eNavigateType = nfFromChild)
-36979>>>                    Send NavigateClose Self
-36980>>>                    Case Break
-36981>>>
-36981>>>                Case (NavigateData.eNavigateType = nfFromMain)
-36984>>>                    Send NavigateClose Self
-36985>>>                    Case Break
-36986>>>
-36986>>>                Case Else // must be nfUndefined
-36986>>>// ToDo: Fill in the from-parent child Select view object name for navigate forward
-36986>>>Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-36987>>>>
-36987>>>//                    Send NavigateForward of oSelectView Self
-36987>>>
-36987>>>            Case End
-36987>>>        End_Procedure
-36988>>>
-36988>>>        Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
-36991>>>            Move True to NavigateData.bReadOnly
-36992>>>        End_Procedure
+36976>>>        Object oPersonCity is a cWebColumn
+36978>>>            Entry_Item Person.City
+36979>>>            Set psCaption to "Person.City"
+36980>>>            Set piWidth to 652
+36981>>>            Set piListColSpan to 2
+36982>>>            Set pbNewLine to True
+36983>>>            Set psCSSClass to "RowDetail"
+36984>>>        End_Object 
+36985>>>
+36985>>>// ToDo: Fill in the from-parent child Select view object name for navigate forward
+36985>>>//        WebRegisterPath ntNavigateForward oSelectView
+36985>>>
+36985>>>        Procedure OnRowClick String sRowId
+36988>>>            tWebNavigateData NavigateData
+36988>>>            tWebNavigateData NavigateData
+36988>>>            Get GetNavigateData to NavigateData
+36989>>>
+36989>>>            Case Begin
+36989>>>                Case (NavigateData.eNavigateType = nfFromParent)
+36991>>>// ToDo: Fill in the from-parent child Select view object name for navigate forward
+36991>>>Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
+36992>>>>
+36992>>>//                    Send NavigateForward of oSelectView Self
+36992>>>                    Case Break
 36993>>>
-36993>>>    End_Object 
-36994>>>
-36994>>>    Object oActionGroup is a cWebMenuGroup
-36996>>>
-36996>>>        Object oSearch is a cWebMenuItem
-36998>>>            Set psCSSClass to "WebPromptMenuItem"
-36999>>>            Set psCaption to "Search"
-37000>>>
-37000>>>            Procedure OnClick
-37003>>>                Send Search of oList
-37004>>>            End_Procedure
+36993>>>                Case (NavigateData.eNavigateType = nfFromChild)
+36996>>>                    Send NavigateClose Self
+36997>>>                    Case Break
+36998>>>
+36998>>>                Case (NavigateData.eNavigateType = nfFromMain)
+37001>>>                    Send NavigateClose Self
+37002>>>                    Case Break
+37003>>>
+37003>>>                Case Else // must be nfUndefined
+37003>>>// ToDo: Fill in the from-parent child Select view object name for navigate forward
+37003>>>Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
+37004>>>>
+37004>>>//                    Send NavigateForward of oSelectView Self
+37004>>>
+37004>>>            Case End
+37004>>>        End_Procedure
 37005>>>
-37005>>>        End_Object 
-37006>>>
-37006>>>        Object oNewButton is a cWebMenuItem
-37008>>>            Set psCSSClass to "WebClearMenuItem"
-37009>>>            Set psCaption to "New"
+37005>>>        Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
+37008>>>            Move True to NavigateData.bReadOnly
+37009>>>        End_Procedure
 37010>>>
-37010>>>            WebRegisterPath ntNavigateForward oZoomPerson
-37016>>>
-37016>>>            Procedure OnClick
-37019>>>                Send NavigatePath
-37020>>>            End_Procedure
-37021>>>
-37021>>>            Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
-37024>>>                Move True to NavigateData.bNewRecord
-37025>>>            End_Procedure
-37026>>>
-37026>>>        End_Object 
-37027>>>    End_Object 
-37028>>>
-37028>>>    Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
-37031>>>        WebSet pbRender of oNewButton to True
-37032>>>        WebSet pbRender of oDetailButton to True
+37010>>>    End_Object 
+37011>>>
+37011>>>    Object oActionGroup is a cWebMenuGroup
+37013>>>
+37013>>>        Object oSearch is a cWebMenuItem
+37015>>>            Set psCSSClass to "WebPromptMenuItem"
+37016>>>            Set psCaption to "Search"
+37017>>>
+37017>>>            Procedure OnClick
+37020>>>                Send Search of oList
+37021>>>            End_Procedure
+37022>>>
+37022>>>        End_Object 
+37023>>>
+37023>>>        Object oNewButton is a cWebMenuItem
+37025>>>            Set psCSSClass to "WebClearMenuItem"
+37026>>>            Set psCaption to "New"
+37027>>>
+37027>>>            WebRegisterPath ntNavigateForward oZoomPerson
 37033>>>
-37033>>>        Case Begin
-37033>>>            Case (NavigateData.eNavigateType = nfFromParent)
-37035>>>                // If from parent, this is a constrained drill down
-37035>>>                Case Break
-37036>>>
-37036>>>            Case (NavigateData.eNavigateType = nfFromChild)
-37039>>>                // If from child, this is a probably a parent lookup from a Zoom
-37039>>>                Case Break
-37040>>>
-37040>>>            Case (NavigateData.eNavigateType = nfFromMain)
-37043>>>                // If from main, this is a probably a main-file lookup from a Zoom
-37043>>>                WebSet pbRender of oDetailButton to False
-37044>>>                Case Break
+37033>>>            Procedure OnClick
+37036>>>                Send NavigatePath
+37037>>>            End_Procedure
+37038>>>
+37038>>>            Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
+37041>>>                Move True to NavigateData.bNewRecord
+37042>>>            End_Procedure
+37043>>>
+37043>>>        End_Object 
+37044>>>    End_Object 
 37045>>>
-37045>>>            Case Else // must be nfUndefined
-37045>>>                // This may be the start of a drilldown query or this may be used for some kind of custom query.
-37045>>>
-37045>>>        Case End
-37045>>>
-37045>>>    End_Procedure
-37046>>>
-37046>>>
-37046>>>End_Object 
-37047>    Set phoDefaultView to oDashboard
-37048>
-37048>End_Object
-37049>
-37049>Send StartWebApp of oWebApp
-37050>
+37045>>>    Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
+37048>>>        WebSet pbRender of oNewButton to True
+37049>>>        WebSet pbRender of oDetailButton to True
+37050>>>
+37050>>>        Case Begin
+37050>>>            Case (NavigateData.eNavigateType = nfFromParent)
+37052>>>                // If from parent, this is a constrained drill down
+37052>>>                Case Break
+37053>>>
+37053>>>            Case (NavigateData.eNavigateType = nfFromChild)
+37056>>>                // If from child, this is a probably a parent lookup from a Zoom
+37056>>>                Case Break
+37057>>>
+37057>>>            Case (NavigateData.eNavigateType = nfFromMain)
+37060>>>                // If from main, this is a probably a main-file lookup from a Zoom
+37060>>>                WebSet pbRender of oDetailButton to False
+37061>>>                Case Break
+37062>>>
+37062>>>            Case Else // must be nfUndefined
+37062>>>                // This may be the start of a drilldown query or this may be used for some kind of custom query.
+37062>>>
+37062>>>        Case End
+37062>>>
+37062>>>    End_Procedure
+37063>>>
+37063>>>
+37063>>>End_Object 
+37064>    Use ZoomMedia.wo
+Including file: ZoomMedia.wo    (D:\DataFlex Projects\Quickstart\AppSrc\ZoomMedia.wo)
+37064>>>// D:\DataFlex Projects\Quickstart\AppSrc\ZoomMedia.wo
+37064>>>// Media
+37064>>>//
+37064>>>
+37064>>>Use cWebView.pkg
+37064>>>Use cWebPanel.pkg
+37064>>>Use cWebMenuGroup.pkg
+37064>>>Use cWebMenuItem.pkg
+37064>>>Use cWebForm.pkg
+37064>>>Use cWebCombo.pkg
+37064>>>Use cWebGroup.pkg
+37064>>>Use SelectPerson.wo
+37064>>>
+37064>>>Use cPersonDataDictionary.dd
+37064>>>Use cMediaDataDictionary.dd
+Including file: cMediaDataDictionary.dd    (D:\DataFlex Projects\Quickstart\DDSrc\cMediaDataDictionary.dd)
+37064>>>>>Use DataDict.pkg
+37064>>>>>
+37064>>>>>Open Media
+Including file: Media.fd    (D:\DataFlex Projects\Quickstart\DDSrc\Media.fd)
+37066>>>>>Open Person
+37068>>>>>
+37068>>>>>Object MediaTypes is a DescriptionValidationTable
+37070>>>>>    Procedure Fill_List
+37073>>>>>        Forward Send Fill_List
+37075>>>>>        Send Add_Table_Value "IMAGE" "Image file"
+37076>>>>>        Send Add_Table_Value "AUDIO" "Audio file"
+37077>>>>>        Send Add_Table_Value "VIDEO" "Video file"
+37078>>>>>        Send Add_Table_Value "BOOK" "Book PDF"
+37079>>>>>    End_Procedure
+37080>>>>>End_Object
+37081>>>>>
+37081>>>>>Class cMediaDataDictionary is a DataDictionary
+37082>>>>>    
+37082>>>>>    Procedure Construct_Object
+37084>>>>>        Forward Send Construct_Object
+37086>>>>>        Set Main_File to Media.File_Number
+37087>>>>>
+37087>>>>>        Set Add_Server_File to Person.File_Number
+37088>>>>>
+37088>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
+37089>>>>>        Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
+37090>>>>>        Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
+37091>>>>>        Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+37092>>>>>
+37092>>>>>        Set Key_Field_State Field Media.MediaId to True
+37093>>>>>
+37093>>>>>        Set Field_Option Field Media.Title DD_REQUIRED to True
+37094>>>>>
+37094>>>>>        Set Field_Value_Table Field Media.Type to MediaTypes
+37095>>>>>        Set Field_Class_Name Field Media.Type to "Combo"
+37096>>>>>
+37096>>>>>        Set Field_Label_Short Field Media.PurchaseDate to "Purchase date"
+37097>>>>>
+37097>>>>>        Set Field_Mask_Type Field Media.Price to Mask_Currency_Window
+37098>>>>>
+37098>>>>>    End_Procedure
+37099>>>>>
+37099>>>>>End_Class
+37100>>>Use cWebDateForm.pkg
+37100>>>
+37100>>>Object oZoomMedia is a cWebView
+37102>>>    Set piColumnCount to 12
+37103>>>    Set psCaption to "Media"
+37104>>>    Set peWebViewStyle to wvsDrilldown
+37105>>>    Set peViewType to vtZoom
+37106>>>    Set pbShowCaption to False
+37107>>>    Set Verify_Save_Msg to 0
+37108>>>    Set piMaxWidth to 1024
+37109>>>
+37109>>>    Object oPerson_DD is a cPersonDataDictionary
+37111>>>    End_Object 
+37112>>>
+37112>>>    Object oMedia_DD is a cMediaDataDictionary
+37114>>>        Set DDO_Server To oPerson_DD
+37115>>>    End_Object 
+37116>>>
+37116>>>    Set Main_DD To oMedia_DD
+37117>>>    Set Server  To oMedia_DD
+37118>>>
+37118>>>
+37118>>>    Object oWebMainPanel is a cWebPanel
+37120>>>        Set piColumnCount to 12
+37121>>>
+37121>>>        Object oWebGroup1 is a cWebGroup
+37123>>>            Set piColumnSpan to 0
+37124>>>            Set piColumnIndex to 0
+37125>>>            Set piColumnCount to 12
+37126>>>            Set psCaption to "Person"
+37127>>>            WebSetResponsive piColumnCount rmMobile to 4
+37128>>>
+37128>>>            Object oPersonLastName is a cWebForm
+37130>>>                Entry_Item Person.LastName
+37131>>>                Set piColumnSpan to 8
+37132>>>                Set piColumnIndex to 0
+37133>>>                Set peLabelPosition to lpTop
+37134>>>                Set psLabel to "Last name"
+37135>>>                Set pbPromptButton to True
+37136>>>
+37136>>>                WebRegisterPath ntNavigateForward oSelectPerson
+37142>>>
+37142>>>                Procedure OnPrompt
+37145>>>                    Send NavigatePath
+37146>>>                End_Procedure
+37147>>>            End_Object 
+37148>>>
+37148>>>            Object oPerson_FirstName is a cWebForm
+37150>>>                Entry_Item Person.FirstName
+37151>>>
+37151>>>                Set Server to oMedia_DD
+37152>>>                Set piColumnSpan to 0
+37153>>>                Set psLabel to "FirstName"
+37154>>>                Set peLabelPosition to lpTop
+37155>>>            End_Object
+37156>>>        End_Object 
+37157>>>        WebSetResponsive piColumnCount rmMobile to 4
+37158>>>
+37158>>>        Object oMediaTitle is a cWebForm
+37160>>>            Entry_Item Media.Title
+37161>>>            Set piColumnSpan to 12
+37162>>>            Set piColumnIndex to 0
+37163>>>            Set peLabelPosition to lpTop
+37164>>>            Set psLabel to "Title"
+37165>>>        End_Object 
+37166>>>
+37166>>>        Object oMediaAuthor is a cWebForm
+37168>>>            Entry_Item Media.Author
+37169>>>            Set piColumnSpan to 11
+37170>>>            Set piColumnIndex to 0
+37171>>>            Set peLabelPosition to lpTop
+37172>>>            Set psLabel to "Author"
+37173>>>        End_Object 
+37174>>>
+37174>>>        Object oMediaType is a cWebCombo
+37176>>>            Entry_Item Media.Type
+37177>>>            Set piColumnSpan to 2
+37178>>>            Set piColumnIndex to 0
+37179>>>            Set peLabelPosition to lpTop
+37180>>>            Set psLabel to "Type"
+37181>>>        End_Object 
+37182>>>
+37182>>>        Object oWebDateForm1 is a cWebDateForm
+37184>>>            Entry_Item Media.PurchaseDate
+37185>>>            Set piColumnSpan to 4
+37186>>>            Set psLabel to "Purchased date"
+37187>>>            Set peLabelPosition to lpTop
+37188>>>        End_Object
+37189>>>
+37189>>>        Object oMedia_Price is a cWebForm
+37191>>>            Entry_Item Media.Price
+37192>>>            Set piColumnSpan to 4
+37193>>>            Set psLabel to "Price"
+37194>>>            Set peLabelPosition to lpTop
+37195>>>            Set piColumnIndex to 4
+37196>>>        End_Object
+37197>>>    End_Object 
+37198>>>
+37198>>>    Object oActionGroup is a cWebMenuGroup
+37200>>>
+37200>>>        Object oSaveBtn is a cWebMenuItem
+37202>>>            Set psCSSClass to "WebSaveMenuItem"
+37203>>>            Set psCaption to "Save"
+37204>>>
+37204>>>            Procedure OnClick
+37207>>>                Send Request_Save
+37208>>>            End_Procedure
+37209>>>
+37209>>>        End_Object 
+37210>>>
+37210>>>        Object oEditBtn is a cWebMenuItem
+37212>>>            Set psCSSClass to "WebEditMenuItem"
+37213>>>            Set psCaption to "Edit"
+37214>>>            Procedure OnClick
+37217>>>                Send ChangeEditMode True
+37218>>>                Send SetActionButtons
+37219>>>            End_Procedure
+37220>>>
+37220>>>        End_Object 
+37221>>>
+37221>>>        Object oDeleteBtn is a cWebMenuItem
+37223>>>            Set psCSSClass to "WebDeleteMenuItem"
+37224>>>            Set psCaption to "Delete"
+37225>>>            Set peActionDisplay to adMenu
+37226>>>
+37226>>>            Procedure OnClick
+37229>>>                Send Request_Delete
+37230>>>            End_Procedure
+37231>>>
+37231>>>        End_Object 
+37232>>>
+37232>>>        Object oCancelChangesBtn is a cWebMenuItem
+37234>>>            Set psCSSClass to "WebIcon_Refresh"
+37235>>>            Set psCaption to "Clear Changes"
+37236>>>            Set peActionDisplay to adMenu
+37237>>>            Procedure OnClick
+37240>>>                Send RefreshRecord
+37241>>>            End_Procedure
+37242>>>
+37242>>>        End_Object 
+37243>>>    End_Object 
+37244>>>
+37244>>>    Procedure SetActionButtons
+37247>>>        tWebNavigateData NavigateData
+37247>>>        tWebNavigateData NavigateData
+37247>>>        Boolean bHasRecord
+37247>>>        Handle hoDD
+37247>>>
+37247>>>        Get Server to hoDD
+37248>>>        Get GetNavigateData to NavigateData
+37249>>>        Get HasRecord of hoDD to bHasRecord
+37250>>>
+37250>>>        // let's hide all buttons and then Show the ones we want
+37250>>>        WebSet pbRender of oEditBtn to False
+37251>>>        WebSet pbRender of oSaveBtn to False
+37252>>>        WebSet pbRender of oCancelChangesBtn to False
+37253>>>        WebSet pbRender of oDeleteBtn to False
+37254>>>
+37254>>>        If (NavigateData.bReadOnly) Begin
+37256>>>            WebSet pbRender of oEditBtn to True
+37257>>>        End
+37257>>>>
+37257>>>        Else Begin
+37258>>>            WebSet pbRender of oSaveBtn to True
+37259>>>            WebSet pbRender of oCancelChangesBtn to True
+37260>>>            WebSet pbRender of oDeleteBtn to bHasRecord
+37261>>>        End
+37261>>>>
+37261>>>    End_Procedure
+37262>>>
+37262>>>    Procedure OnViewSaved Handle hoServer Boolean bChanged
+37265>>>        // Close after save
+37265>>>        Send NavigateClose Self
+37266>>>    End_Procedure
+37267>>>
+37267>>>    // this will close the view after a delete
+37267>>>    Procedure OnViewDeleted Handle hoDDO
+37270>>>        Send NavigateClose Self
+37271>>>    End_Procedure
+37272>>>
+37272>>>    Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
+37275>>>        Case Begin
+37275>>>            Case (NavigateData.eNavigateType = nfFromMain)
+37277>>>                // If from main, this is a propbably a main file Select to Zoom.
+37277>>>                Case Break
+37278>>>
+37278>>>            Case (NavigateData.eNavigateType = nfFromParent)
+37281>>>                // If from parent, this is a constrained drill down.
+37281>>>                Case Break
+37282>>>
+37282>>>            Case (NavigateData.eNavigateType = nfFromChild)
+37285>>>                // If from child, this is a probably a parent Zoom from a Zoom.
+37285>>>                Case Break
+37286>>>
+37286>>>            Case Else // must be nfUndefined
+37286>>>
+37286>>>        Case End
+37286>>>
+37286>>>        Send SetActionButtons
+37287>>>
+37287>>>    End_Procedure
+37288>>>
+37288>>>End_Object 
+37289>    Use SelectMedia.wo
+Including file: SelectMedia.wo    (D:\DataFlex Projects\Quickstart\AppSrc\SelectMedia.wo)
+37289>>>// D:\DataFlex Projects\Quickstart\AppSrc\SelectMedia.wo
+37289>>>// Media list
+37289>>>//
+37289>>>
+37289>>>Use cWebView.pkg
+37289>>>Use cWebList.pkg
+37289>>>Use cWebMenuGroup.pkg
+37289>>>Use cWebMenuItem.pkg
+37289>>>Use cWebColumnButton.pkg
+37289>>>Use cWebColumn.pkg
+37289>>>Use ZoomMedia.wo
+37289>>>
+37289>>>Use cPersonDataDictionary.dd
+37289>>>Use cMediaDataDictionary.dd
+37289>>>
+37289>>>Object oSelectMedia is a cWebView
+37291>>>    Set psCaption to "Media list"
+37292>>>    Set peWebViewStyle to wvsDrilldown
+37293>>>    Set peViewType to vtSelect
+37294>>>    Set piColumnCount to 12
+37295>>>    Set pbShowCaption to False
+37296>>>    Set piMaxWidth to 1024
+37297>>>
+37297>>>    Object oPerson_DD is a cPersonDataDictionary
+37299>>>    End_Object 
+37300>>>
+37300>>>    Object oMedia_DD is a cMediaDataDictionary
+37302>>>        Set DDO_Server To oPerson_DD
+37303>>>    End_Object 
+37304>>>
+37304>>>    Set Main_DD To oMedia_DD
+37305>>>    Set Server  To oMedia_DD
+37306>>>
+37306>>>
+37306>>>    Object oList is a cWebList
+37308>>>        Set piColumnSpan to 0
+37309>>>        Set psCSSClass to "MobileList"
+37310>>>        Set pbServerOnRowClick to True
+37311>>>        Set pbFillHeight to True
+37312>>>        Set pbShowHeader to False
+37313>>>        Set piSortColumn to 0
+37314>>>
+37314>>>        Object oMediaTitle is a cWebColumn
+37316>>>            Entry_Item Media.Title
+37317>>>            Set psCaption to "Media.Title"
+37318>>>            Set piWidth to 1087
+37319>>>            Set piListColSpan to 2
+37320>>>            Set psCSSClass to "RowCaption"
+37321>>>        End_Object 
+37322>>>
+37322>>>        Object oDetailButton is a cWebColumnButton
+37324>>>            Set psCaption to "btn"
+37325>>>            Set piWidth to 45
+37326>>>            Set pbFixedWidth to True
+37327>>>            Set pbResizable to False
+37328>>>            Set piListRowSpan to 3
+37329>>>            Set psBtnCssClass to "WebButtonIcon WebIcon_Info"
+37330>>>            Set peAlign to alignRight
+37331>>>
+37331>>>            WebRegisterPath ntNavigateForward oZoomMedia
+37337>>>
+37337>>>            Procedure OnClick
+37340>>>                Send NavigatePath
+37341>>>            End_Procedure
+37342>>>
+37342>>>            Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
+37345>>>                Move True to NavigateData.bReadOnly
+37346>>>            End_Procedure
+37347>>>
+37347>>>        End_Object 
+37348>>>
+37348>>>        Object oMediaAuthor is a cWebColumn
+37350>>>            Entry_Item Media.Author
+37351>>>            Set psCaption to "Media.Author"
+37352>>>            Set piWidth to 652
+37353>>>            Set piListColSpan to 2
+37354>>>            Set pbNewLine to True
+37355>>>        End_Object 
+37356>>>
+37356>>>        Object oPersonLastName is a cWebColumn
+37358>>>            Entry_Item Person.LastName
+37359>>>            Set psCaption to "Person.LastName"
+37360>>>            Set piWidth to 435
+37361>>>            Set pbNewLine to True
+37362>>>            Set psCSSClass to "RowDetail"
+37363>>>        End_Object 
+37364>>>
+37364>>>        Object oPersonFirstName is a cWebColumn
+37366>>>            Entry_Item Person.FirstName
+37367>>>            Set psCaption to "Person.FirstName"
+37368>>>            Set piWidth to 435
+37369>>>            Set psCSSClass to "RowDetail"
+37370>>>        End_Object 
+37371>>>
+37371>>>        WebRegisterPath ntNavigateForward oZoomMedia
+37377>>>
+37377>>>        Procedure OnRowClick String sRowId
+37380>>>            tWebNavigateData NavigateData
+37380>>>            tWebNavigateData NavigateData
+37380>>>            Get GetNavigateData to NavigateData
+37381>>>
+37381>>>            Case Begin
+37381>>>                Case (NavigateData.eNavigateType = nfFromParent)
+37383>>>                    Send NavigateForward of oZoomMedia Self
+37384>>>                    Case Break
+37385>>>
+37385>>>                Case (NavigateData.eNavigateType = nfFromChild)
+37388>>>                    Send NavigateClose Self
+37389>>>                    Case Break
+37390>>>
+37390>>>                Case (NavigateData.eNavigateType = nfFromMain)
+37393>>>                    Send NavigateClose Self
+37394>>>                    Case Break
+37395>>>
+37395>>>                Case Else // must be nfUndefined
+37395>>>                    Send NavigateForward of oZoomMedia Self
+37396>>>
+37396>>>            Case End
+37396>>>        End_Procedure
+37397>>>
+37397>>>        Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
+37400>>>            Move True to NavigateData.bReadOnly
+37401>>>        End_Procedure
+37402>>>
+37402>>>    End_Object 
+37403>>>
+37403>>>    Object oActionGroup is a cWebMenuGroup
+37405>>>
+37405>>>        Object oSearch is a cWebMenuItem
+37407>>>            Set psCSSClass to "WebPromptMenuItem"
+37408>>>            Set psCaption to "Search"
+37409>>>
+37409>>>            Procedure OnClick
+37412>>>                Send Search of oList
+37413>>>            End_Procedure
+37414>>>
+37414>>>        End_Object 
+37415>>>
+37415>>>        Object oNewButton is a cWebMenuItem
+37417>>>            Set psCSSClass to "WebClearMenuItem"
+37418>>>            Set psCaption to "New"
+37419>>>
+37419>>>            WebRegisterPath ntNavigateForward oZoomMedia
+37425>>>
+37425>>>            Procedure OnClick
+37428>>>                Send NavigatePath
+37429>>>            End_Procedure
+37430>>>
+37430>>>            Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
+37433>>>                Move True to NavigateData.bNewRecord
+37434>>>            End_Procedure
+37435>>>
+37435>>>        End_Object 
+37436>>>    End_Object 
+37437>>>
+37437>>>    Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
+37440>>>        WebSet pbRender of oNewButton to True
+37441>>>        WebSet pbRender of oDetailButton to True
+37442>>>
+37442>>>        Case Begin
+37442>>>            Case (NavigateData.eNavigateType = nfFromParent)
+37444>>>                // If from parent, this is a constrained drill down
+37444>>>                // If Row select does main-zoom we don't need this
+37444>>>                WebSet pbRender of oDetailButton to False
+37445>>>                Case Break
+37446>>>
+37446>>>            Case (NavigateData.eNavigateType = nfFromChild)
+37449>>>                // If from child, this is a probably a parent lookup from a Zoom
+37449>>>                Case Break
+37450>>>
+37450>>>            Case (NavigateData.eNavigateType = nfFromMain)
+37453>>>                // If from main, this is a probably a main-file lookup from a Zoom
+37453>>>                WebSet pbRender of oDetailButton to False
+37454>>>                Case Break
+37455>>>
+37455>>>            Case Else // must be nfUndefined
+37455>>>                // This may be the start of a drilldown query or this may be used for some kind of custom query.
+37455>>>                // If Row select does main-zoom we don't need this
+37455>>>                WebSet pbRender of oDetailButton to False
+37456>>>
+37456>>>        Case End
+37456>>>
+37456>>>    End_Procedure
+37457>>>
+37457>>>
+37457>>>End_Object 
+37458>    Set phoDefaultView to oDashboard
+37459>
+37459>End_Object
+37460>
+37460>Send StartWebApp of oWebApp
+37461>
 Summary
-Memory Available: 39962279936
+Memory Available: 37423656960
 Total Warnings : 0
 Total Errors   : 0
-Total Symbols  : 24877
+Total Symbols  : 24978
 Total Resources: 0
-Total Commands : 37049
+Total Commands : 37460
 Total Windows  : 0
 Total Pages    : 0
-Static Data    : 457845
-Message area   : 246149
-Total Blocks   : 16562
+Static Data    : 461789
+Message area   : 250578
+Total Blocks   : 16703
