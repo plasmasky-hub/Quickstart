@@ -16,8 +16,10 @@ Class cPersonDataDictionary is a DataDictionary
         Set Key_Field_State Field Person.PersonId to True
 
         Set Field_Label_Short Field Person.LastName to "Last name"
+        Set Field_Option Field Person.LastName DD_REQUIRED to True
 
         Set Field_Label_Short Field Person.FirstName to "First name"
+        Set Field_Option Field Person.FirstName DD_REQUIRED to True
 
     End_Procedure
 
