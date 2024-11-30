@@ -1,0 +1,10 @@
+#REPLACE FILE1 Person
+#REPLACE Person.File_Number |CI1
+#REPLACE Person.PersonId |FN1,1
+#REPLACE Person.LastName |FS1,2
+#REPLACE Person.FirstName |FS1,3
+#REPLACE Person.Address |FS1,4
+#REPLACE Person.Zip |FS1,5
+#REPLACE Person.City |FS1,6
+#REPLACE Person.Phone |FS1,7
+#REPLACE Person.Comments |FS1,8

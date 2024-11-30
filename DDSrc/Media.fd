@@ -1,0 +1,9 @@
+#REPLACE FILE2 Media
+#REPLACE Media.File_Number |CI2
+#REPLACE Media.MediaId |FN2,1
+#REPLACE Media.PersonId |FN2,2
+#REPLACE Media.Title |FS2,3
+#REPLACE Media.Author |FS2,4
+#REPLACE Media.Type |FS2,5
+#REPLACE Media.PurchaseDate |FD2,6
+#REPLACE Media.Price |FN2,7
