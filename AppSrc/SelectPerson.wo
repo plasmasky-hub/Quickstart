@@ -78,8 +78,7 @@ Object oSelectPerson is a cWebView
             Set psCSSClass to "RowDetail"
         End_Object 
 
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-//        WebRegisterPath ntNavigateForward oSelectView
+        WebRegisterPath ntNavigateForward oSelectMedia
 
         Procedure OnRowClick String sRowId
             tWebNavigateData NavigateData
@@ -87,9 +86,8 @@ Object oSelectPerson is a cWebView
 
             Case Begin
                 Case (NavigateData.eNavigateType = nfFromParent)
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-//                    Send NavigateForward of oSelectView Self
+
+                    Send NavigateForward of oSelectMedia Self
                     Case Break
 
                 Case (NavigateData.eNavigateType = nfFromChild)
@@ -101,9 +99,7 @@ Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not y
                     Case Break
 
                 Case Else // must be nfUndefined
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-//                    Send NavigateForward of oSelectView Self
+                    Send NavigateForward of oSelectMedia Self
 
             Case End
         End_Procedure
