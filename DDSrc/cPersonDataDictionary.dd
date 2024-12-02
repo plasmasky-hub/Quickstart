@@ -1,12 +1,15 @@
 ﻿Use DataDict.pkg
 
 Open Person
+Open Media
 
 Class cPersonDataDictionary is a DataDictionary
     
     Procedure Construct_Object
         Forward Send Construct_Object
         Set Main_File to Person.File_Number
+
+        Set Add_Client_File to Media.File_Number
 
         Set Foreign_Field_Option DD_KEYFIELD DD_NOPUT to True
         Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
@@ -16,8 +19,10 @@ Class cPersonDataDictionary is a DataDictionary
         Set Key_Field_State Field Person.PersonId to True
 
         Set Field_Label_Short Field Person.LastName to "Last name"
+        Set Field_Option Field Person.LastName DD_REQUIRED to True
 
         Set Field_Label_Short Field Person.FirstName to "First name"
+        Set Field_Option Field Person.FirstName DD_REQUIRED to True
 
     End_Procedure
 
