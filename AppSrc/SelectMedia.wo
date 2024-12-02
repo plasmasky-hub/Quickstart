@@ -12,6 +12,7 @@ Use ZoomMedia.wo
 
 Use cPersonDataDictionary.dd
 Use cMediaDataDictionary.dd
+Use cWebLabel.pkg
 
 Object oSelectMedia is a cWebView
     Set psCaption to "Media list"
@@ -30,6 +31,12 @@ Object oSelectMedia is a cWebView
 
     Set Main_DD To oMedia_DD
     Set Server  To oMedia_DD
+
+    Object oFilterLabel is a cWebLabel
+        Set psCaption to "Media items of '_'"
+        Set piColumnSpan to 12
+        Set psCSSClass to "LabelCaption"
+    End_Object
 
 
     Object oList is a cWebList
@@ -155,12 +162,15 @@ Object oSelectMedia is a cWebView
     Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
         WebSet pbRender of oNewButton to True
         WebSet pbRender of oDetailButton to True
+        WebSet pbRender of oFilterLabel to False
 
         Case Begin
             Case (NavigateData.eNavigateType = nfFromParent)
                 // If from parent, this is a constrained drill down
                 // If Row select does main-zoom we don't need this
                 WebSet pbRender of oDetailButton to False
+                WebSet pbRender of oFilterLabel to True
+                WebSet psCaption of oFilterLabel to (SFormat("Media items of '%1'", Trim(Person.FirstName * Person.LastName)))
                 Case Break
 
             Case (NavigateData.eNavigateType = nfFromChild)
